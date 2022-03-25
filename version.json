@@ -1,0 +1,8 @@
+{
+  "Version": "1.0.3",
+  "Changelog": [
+    "Add interface"
+  ],
+  "IntegrationFileName": "TwitchIntegration",
+  "DependenciesFileName": "deps"
+}
