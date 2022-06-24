@@ -4,15 +4,20 @@ namespace TwitchIntegration.Models.Twitch
 {
     public class TwitchHost
     {
+        [YamlMember(Description = "Minimum amount of viewers from host required to execute this event.")]
         public int MinViewers { get; set; } = 0;
+        [YamlMember(Description = "Maximum amount of viewers from host required to execute this event.")]
         public int MaxViewers { get; set; } = 1000;
 
+        [YamlMember(Description = "Global delay between next usage of this event.")]
         public TimeSpan GlobalDelay { get; set; } = TimeSpan.Zero;
 
         [YamlIgnore]
         public DateTime CurrentGlobalDelay = DateTime.Now;
 
+        [YamlMember(Description = "If enabled random action is pick from \"OscOutActions\".")]
         public bool ExecuteRandomAction { get; set; }
+        [YamlMember(Description = "List of OSC actions executed while this event.")]
         public List<OscOutAction> OscOutActions { get; set; } = new List<OscOutAction>();
 
         public bool TryExecuteCommand(BeingHostedNotification host)

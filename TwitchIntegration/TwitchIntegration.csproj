@@ -14,11 +14,29 @@
 
     <ItemGroup>
     <PackageReference Include="CoreOSC" Version="1.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
     <PackageReference Include="ReaLTaiizor" Version="3.7.8.5" />
     <PackageReference Include="TwitchLib" Version="3.3.0" GeneratePathProperty="true" />
+    <PackageReference Include="YamlDotNet" Version="11.2.1" />
     </ItemGroup>
 
     <ItemGroup>
+      <Reference Include="VrcOscIntegrations">
+        <HintPath>..\..\VrcOscIntegrations\VrcOscIntegrations\bin\Debug\net6.0-windows10.0.17763.0\VrcOscIntegrations.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+    <Compile Update="Interface\Dialogs\CreateRewardDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Dialogs\EditRewardDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Entries\RewardItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
@@ -32,9 +50,4 @@
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     </ItemGroup>
-
-    <ItemGroup>
-    <ProjectReference Include="..\..\VrcOscIntegrations\VrcOscIntegrations\VrcOscIntegrations.csproj" />
-    </ItemGroup>
-
 </Project>

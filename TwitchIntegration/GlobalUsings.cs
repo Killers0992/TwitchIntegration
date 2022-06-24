@@ -18,8 +18,6 @@ global using VrcOscIntegrations.Models;
 global using VrcOscIntegrations.Services;
 global using VrcOscIntegrations.Interfaces;
 
-global using Microsoft.AspNetCore.Mvc;
-global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.Hosting;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.DependencyInjection;
@@ -52,8 +50,6 @@ global using ReaLTaiizor.Manager;
 global using ReaLTaiizor.Controls;
 
 global using System.Windows.Forms;
-
 global using YamlDotNet.Serialization;
-
 
 

@@ -4,26 +4,37 @@ namespace TwitchIntegration.Models.Twitch
 {
     public class TwitchBits
     {
+        [YamlMember(Description = "Minimum amount of bits send needed to execute this event.")]
         public int MinBits { get; set; } = 100;
+        [YamlMember(Description = "Maximum amount of bits sended needed to execute this event.")]
         public int MaxBits { get; set; } = 1000;
 
+        [YamlMember(Description = "If enabled then anyone can execute this event.")]
         public bool NormalAccess { get; set; } = true;
+        [YamlMember(Description = "If enabled then only users with active subscribtion can use this.")]
         public bool SubAccess { get; set; }
+        [YamlMember(Description = "If enabled then only users with set amount of subscribed months can use this.")]
         public int SubMonths { get; set; }
+        [YamlMember(Description = "If enabled then only users with moderation rank can use this.")]
         public bool ModAccess { get; set; }
+        [YamlMember(Description = "If enabled then only users with VIP rank can use this.")]
         public bool VipAccess { get; set; }
 
+        [YamlMember(Description = "Global delay between next usage of this event.")]
         public TimeSpan GlobalDelay { get; set; } = TimeSpan.Zero;
 
         [YamlIgnore]
         public DateTime CurrentGlobalDelay = DateTime.Now;
 
+        [YamlMember(Description = "Delay per user usage of this event.")]
         public TimeSpan DelayPerUser { get; set; } = TimeSpan.Zero;
 
         [YamlIgnore]
         public Dictionary<string, DateTime> CurrentUserDelays = new Dictionary<string, DateTime>();
 
+        [YamlMember(Description = "If enabled random action is pick from \"OscOutActions\".")]
         public bool ExecuteRandomAction { get; set; }
+        [YamlMember(Description = "List of OSC actions executed while this event.")]
         public List<OscOutAction> OscOutActions { get; set; } = new List<OscOutAction>();
 
         public bool TryExecuteCommand(ChatMessage message)

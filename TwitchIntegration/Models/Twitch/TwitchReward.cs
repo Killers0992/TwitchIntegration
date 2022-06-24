@@ -9,9 +9,17 @@ namespace TwitchIntegration.Models.Twitch
         [YamlIgnore]
         Dictionary<string, DateTime> CurrentUserDelays = new Dictionary<string, DateTime>();
 
+
+        [YamlMember(Description = "Name of reward used only for display name.")]
+        public string RewardName { get; set; } = "UNKNOWN";
+
+        [YamlMember(Description = "Global delay between next usage of this event.")]
         public TimeSpan GlobalDelay { get; set; } = TimeSpan.Zero;
+        [YamlMember(Description = "Delay per user usage of this event.")]
         public TimeSpan DelayPerUser { get; set; } = TimeSpan.Zero;
+        [YamlMember(Description = "If enabled random action is pick from \"OscOutActions\".")]
         public bool ExecuteRandomAction { get; set; }
+        [YamlMember(Description = "List of OSC actions executed while this event.")]
         public List<OscOutAction> OscOutActions { get; set; } = new List<OscOutAction>();
 
         public bool TryExecuteCommand(Redemption message)

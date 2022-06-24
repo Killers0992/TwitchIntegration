@@ -44,6 +44,9 @@
             this.addNewCommand = new ReaLTaiizor.Controls.PoisonButton();
             this.commands = new System.Windows.Forms.FlowLayoutPanel();
             this.poisonTabPage3 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.addReward = new ReaLTaiizor.Controls.PoisonButton();
+            this.rewards = new System.Windows.Forms.FlowLayoutPanel();
+            this.poisonTabPage5 = new ReaLTaiizor.Controls.PoisonTabPage();
             this.poisonTabPage4 = new ReaLTaiizor.Controls.PoisonTabPage();
             this.debugSwitch = new ReaLTaiizor.Controls.MetroSwitch();
             this.poisonLabel2 = new ReaLTaiizor.Controls.PoisonLabel();
@@ -57,17 +60,21 @@
             this.poisonTabControl1.SuspendLayout();
             this.Tab0.SuspendLayout();
             this.poisonTabPage2.SuspendLayout();
+            this.poisonTabPage3.SuspendLayout();
             this.poisonTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).BeginInit();
             this.SuspendLayout();
             // 
             // poisonTabControl1
             // 
+            this.poisonTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.poisonTabControl1.Controls.Add(this.Tab0);
             this.poisonTabControl1.Controls.Add(this.poisonTabPage2);
             this.poisonTabControl1.Controls.Add(this.poisonTabPage3);
+            this.poisonTabControl1.Controls.Add(this.poisonTabPage5);
             this.poisonTabControl1.Controls.Add(this.poisonTabPage4);
-            this.poisonTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.poisonTabControl1.Location = new System.Drawing.Point(0, 0);
             this.poisonTabControl1.Name = "poisonTabControl1";
             this.poisonTabControl1.Padding = new System.Drawing.Point(6, 8);
@@ -229,10 +236,10 @@
             this.poisonTabPage2.HorizontalScrollbarBarColor = true;
             this.poisonTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage2.HorizontalScrollbarSize = 10;
-            this.poisonTabPage2.Location = new System.Drawing.Point(4, 35);
+            this.poisonTabPage2.Location = new System.Drawing.Point(4, 38);
             this.poisonTabPage2.Name = "poisonTabPage2";
             this.poisonTabPage2.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage2.Size = new System.Drawing.Size(672, 263);
+            this.poisonTabPage2.Size = new System.Drawing.Size(712, 340);
             this.poisonTabPage2.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage2.TabIndex = 1;
             this.poisonTabPage2.Text = "Commands";
@@ -262,28 +269,73 @@
             this.commands.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.commands.Location = new System.Drawing.Point(3, 25);
             this.commands.Name = "commands";
-            this.commands.Size = new System.Drawing.Size(669, 210);
+            this.commands.Size = new System.Drawing.Size(706, 210);
             this.commands.TabIndex = 2;
             // 
             // poisonTabPage3
             // 
+            this.poisonTabPage3.Controls.Add(this.addReward);
+            this.poisonTabPage3.Controls.Add(this.rewards);
             this.poisonTabPage3.HorizontalScrollbar = true;
             this.poisonTabPage3.HorizontalScrollbarBarColor = true;
             this.poisonTabPage3.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage3.HorizontalScrollbarSize = 10;
-            this.poisonTabPage3.Location = new System.Drawing.Point(4, 35);
+            this.poisonTabPage3.Location = new System.Drawing.Point(4, 38);
             this.poisonTabPage3.Name = "poisonTabPage3";
             this.poisonTabPage3.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage3.Size = new System.Drawing.Size(672, 263);
+            this.poisonTabPage3.Size = new System.Drawing.Size(712, 340);
             this.poisonTabPage3.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage3.TabIndex = 2;
-            this.poisonTabPage3.Text = "Events";
+            this.poisonTabPage3.Text = "Rewards";
             this.poisonTabPage3.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.poisonTabPage3.VerticalScrollbar = true;
             this.poisonTabPage3.VerticalScrollbarBarColor = true;
             this.poisonTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.poisonTabPage3.VerticalScrollbarSize = 10;
             this.poisonTabPage3.Visible = false;
+            // 
+            // addReward
+            // 
+            this.addReward.Location = new System.Drawing.Point(3, 237);
+            this.addReward.Name = "addReward";
+            this.addReward.Size = new System.Drawing.Size(121, 23);
+            this.addReward.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.addReward.TabIndex = 5;
+            this.addReward.Text = "✙ Add New Reward";
+            this.addReward.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.addReward.UseSelectable = true;
+            this.addReward.Click += new System.EventHandler(this.addReward_Click);
+            // 
+            // rewards
+            // 
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.rewards, true);
+            this.rewards.AutoScroll = true;
+            this.rewards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.rewards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.rewards.Location = new System.Drawing.Point(3, 25);
+            this.rewards.Name = "rewards";
+            this.rewards.Size = new System.Drawing.Size(706, 210);
+            this.rewards.TabIndex = 4;
+            // 
+            // poisonTabPage5
+            // 
+            this.poisonTabPage5.BackColor = System.Drawing.Color.Transparent;
+            this.poisonTabPage5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.poisonTabPage5.HorizontalScrollbarBarColor = true;
+            this.poisonTabPage5.HorizontalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage5.HorizontalScrollbarSize = 10;
+            this.poisonTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage5.Name = "poisonTabPage5";
+            this.poisonTabPage5.Size = new System.Drawing.Size(712, 340);
+            this.poisonTabPage5.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
+            this.poisonTabPage5.TabIndex = 3;
+            this.poisonTabPage5.Text = "Subscriptions";
+            this.poisonTabPage5.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonTabPage5.UseCustomBackColor = true;
+            this.poisonTabPage5.UseCustomForeColor = true;
+            this.poisonTabPage5.VerticalScrollbarBarColor = true;
+            this.poisonTabPage5.VerticalScrollbarHighlightOnWheel = false;
+            this.poisonTabPage5.VerticalScrollbarSize = 10;
             // 
             // poisonTabPage4
             // 
@@ -294,10 +346,10 @@
             this.poisonTabPage4.HorizontalScrollbarBarColor = true;
             this.poisonTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage4.HorizontalScrollbarSize = 10;
-            this.poisonTabPage4.Location = new System.Drawing.Point(4, 35);
+            this.poisonTabPage4.Location = new System.Drawing.Point(4, 38);
             this.poisonTabPage4.Name = "poisonTabPage4";
             this.poisonTabPage4.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage4.Size = new System.Drawing.Size(672, 263);
+            this.poisonTabPage4.Size = new System.Drawing.Size(712, 340);
             this.poisonTabPage4.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage4.TabIndex = 3;
             this.poisonTabPage4.Text = "Settings";
@@ -450,6 +502,7 @@
             this.Tab0.ResumeLayout(false);
             this.Tab0.PerformLayout();
             this.poisonTabPage2.ResumeLayout(false);
+            this.poisonTabPage3.ResumeLayout(false);
             this.poisonTabPage4.ResumeLayout(false);
             this.poisonTabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).EndInit();
@@ -466,6 +519,7 @@
         private PoisonLabel poisonLabel1;
         private PoisonTabPage poisonTabPage3;
         private PoisonTabPage poisonTabPage4;
+        private PoisonTabPage poisonTabPage5;
         private PoisonLabel poisonLabel8;
         private PoisonTextBox twitchOAuth;
         private PoisonLabel poisonLabel15;
@@ -484,5 +538,7 @@
         private MetroSwitch debugSwitch;
         private FlowLayoutPanel commands;
         private PoisonButton addNewCommand;
+        private PoisonButton addReward;
+        private FlowLayoutPanel rewards;
     }
 }

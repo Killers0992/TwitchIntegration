@@ -67,7 +67,7 @@
             this.actionName.Lines = new string[0];
             this.actionName.Location = new System.Drawing.Point(3, 40);
             this.actionName.MaxLength = 32767;
-            this.actionName.Name = "actionName";
+            this.actionName.Name = "ActionName";
             this.actionName.PasswordChar = '\0';
             this.actionName.PromptText = "VRC Paramater name...";
             this.actionName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -106,7 +106,7 @@
             this.executionDuration.Location = new System.Drawing.Point(129, 77);
             this.executionDuration.Maximum = ((long)(100));
             this.executionDuration.Minimum = ((long)(0));
-            this.executionDuration.Name = "executionDuration";
+            this.executionDuration.Name = "ExecutionDuration";
             this.executionDuration.Size = new System.Drawing.Size(68, 30);
             this.executionDuration.TabIndex = 3;
             this.executionDuration.Text = "foreverNumeric1";
@@ -134,7 +134,7 @@
             this.poisonLabel4.Text = "Default value";
             this.poisonLabel4.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
-            // oscValue
+            // OscValue
             // 
             // 
             // 
@@ -151,7 +151,7 @@
             this.oscValue.Lines = new string[0];
             this.oscValue.Location = new System.Drawing.Point(124, 113);
             this.oscValue.MaxLength = 32767;
-            this.oscValue.Name = "oscValue";
+            this.oscValue.Name = "OscValue";
             this.oscValue.PasswordChar = '\0';
             this.oscValue.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.oscValue.SelectedText = "";
@@ -183,7 +183,7 @@
             this.defaultValue.Lines = new string[0];
             this.defaultValue.Location = new System.Drawing.Point(124, 143);
             this.defaultValue.MaxLength = 32767;
-            this.defaultValue.Name = "defaultValue";
+            this.defaultValue.Name = "DefaultValue";
             this.defaultValue.PasswordChar = '\0';
             this.defaultValue.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.defaultValue.SelectedText = "";
@@ -203,7 +203,7 @@
             this.removeAction.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Tall;
             this.removeAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.removeAction.Location = new System.Drawing.Point(226, 0);
-            this.removeAction.Name = "removeAction";
+            this.removeAction.Name = "RemoveAction";
             this.removeAction.Size = new System.Drawing.Size(35, 35);
             this.removeAction.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.removeAction.TabIndex = 8;
@@ -211,7 +211,6 @@
             this.removeAction.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.removeAction.UseCustomForeColor = true;
             this.removeAction.UseSelectable = true;
-            this.removeAction.Click += new System.EventHandler(this.removeAction_Click);
             // 
             // OscItem
             // 
@@ -238,13 +237,13 @@
         #endregion
 
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
-        private ReaLTaiizor.Controls.PoisonTextBox actionName;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel2;
-        private ReaLTaiizor.Controls.ForeverNumeric executionDuration;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel3;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel4;
-        private ReaLTaiizor.Controls.PoisonTextBox oscValue;
-        private ReaLTaiizor.Controls.PoisonTextBox defaultValue;
-        private ReaLTaiizor.Controls.PoisonButton removeAction;
+        public PoisonTextBox actionName;
+        public ForeverNumeric executionDuration;
+        public PoisonTextBox oscValue;
+        public PoisonTextBox defaultValue;
+        public PoisonButton removeAction;
     }
 }

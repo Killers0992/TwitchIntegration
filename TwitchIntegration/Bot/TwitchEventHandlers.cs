@@ -36,6 +36,9 @@ namespace TwitchIntegration.Bot
 
         public void OnRewardRedeem(object sender, TwitchLib.PubSub.Events.OnChannelPointsRewardRedeemedArgs e)
         {
+            CreateRewardDialog.IsWaiting = true;
+            CreateRewardDialog.LastReward = new RewardInfo() { Id = e.RewardRedeemed.Redemption.Reward.Id, Title = e.RewardRedeemed.Redemption.Reward.Title };
+
             if (!MainClass.Instance.Config.Events.OnReward.TryGetValue(e.RewardRedeemed.Redemption.Reward.Id, out TwitchReward rew))
             {
                 Logger.Info("TwitchReward", $"User {e.RewardRedeemed.Redemption.User.DisplayName} used reward {e.RewardRedeemed.Redemption.Reward.Id} but that reward id is not added in config!", Color.Magenta, Color.White);

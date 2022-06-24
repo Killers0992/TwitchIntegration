@@ -12,6 +12,7 @@ namespace TwitchIntegration.Interface
 
 
         private PoisonTaskWindow _currentCreateCommandWindow;
+        private PoisonTaskWindow _currentCreateRewardWindow;
 
         public static void OnStatusChanged(StatusChangeArgs e)
         {
@@ -95,6 +96,7 @@ namespace TwitchIntegration.Interface
             SetStatus(true, TwitchBot.IsConnectedToTwitchPubSub);
             SetStatus(false, TwitchBot.IsConnectedToTwitchChat);
             PopulateCommands();
+            PopulateRewards();
         }
 
         public void RemoveCommand(Control control)
@@ -102,7 +104,7 @@ namespace TwitchIntegration.Interface
             commands.Controls.Remove(control);
         }
 
-        public void AddCommand(string commandName, bool normalAccess = true, bool streamerAccess = false, bool subAccess = false, bool vipAccess = false, bool randomExecution = false, List<OscOutAction> actions = null)
+        public void AddCommand(string commandName)
         {
             if (!MainClass.Instance.Config.Events.OnCommand.ContainsKey(commandName))
             {
@@ -117,12 +119,6 @@ namespace TwitchIntegration.Interface
             cmdItem.Width = commands.Width - 25;
 
             cmdItem.CommandName = commandName;
-            cmdItem.NormalAccess = normalAccess;
-            cmdItem.StreamerAccess = streamerAccess;
-            cmdItem.SubAccess = subAccess;
-            cmdItem.VipAccess = vipAccess;
-            cmdItem.RandomExecution = randomExecution;
-            cmdItem.OscActions = actions ?? new List<OscOutAction>();
 
             commands.Controls.Add(cmdItem);
         }
@@ -130,15 +126,39 @@ namespace TwitchIntegration.Interface
         public void PopulateCommands()
         {
             foreach(var cmd in MainClass.Instance.Config.Events.OnCommand)
+                AddCommand(cmd.Key);
+        }
+
+        public void RemoveReward(Control control)
+        {
+            rewards.Controls.Remove(control);
+        }
+
+        public void AddReward(string rewardID, string rewardName)
+        {
+            if (!MainClass.Instance.Config.Events.OnReward.ContainsKey(rewardID))
             {
-                AddCommand(cmd.Key, 
-                    cmd.Value.NormalAccess,
-                    cmd.Value.BroadcasterAccess,
-                    cmd.Value.SubAccess,
-                    cmd.Value.VipAccess,
-                    cmd.Value.ExecuteRandomAction,
-                    cmd.Value.OscOutActions);
+                MainClass.Instance.Config.Events.OnReward.Add(rewardID, new TwitchReward()
+                {
+                    OscOutActions = new List<OscOutAction>(),
+                    RewardName = rewardName
+                });
+                MainClass.Instance.SaveConfig();
             }
+
+            var rewItem = new RewarddItem(this);
+            rewItem.Width = commands.Width - 25;
+
+            rewItem.RewardID = rewardID;
+            rewItem.RewardName = rewardName;
+
+            rewards.Controls.Add(rewItem);
+        }
+
+        public void PopulateRewards()
+        {
+            foreach (var rew in MainClass.Instance.Config.Events.OnReward)
+                AddReward(rew.Key, rew.Value.RewardName);
         }
 
         private void addNewCommand_Click(object sender, EventArgs e)
@@ -165,6 +185,32 @@ namespace TwitchIntegration.Interface
             _currentCreateCommandWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             _currentCreateCommandWindow.Show();
             _currentCreateCommandWindow.Size = new System.Drawing.Size(325, 200);
+        }
+
+        private void addReward_Click(object sender, EventArgs e)
+        {
+            if (_currentCreateRewardWindow != null)
+            {
+                _currentCreateRewardWindow.Close();
+                _currentCreateRewardWindow.Dispose();
+                _currentCreateRewardWindow = null;
+            }
+
+            _currentCreateRewardWindow = new PoisonTaskWindow(0, new CreateRewardDialog(this))
+            {
+                Text = "Add Reward",
+                Resizable = false,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                Movable = true,
+                WindowState = FormWindowState.Normal,
+            };
+            _currentCreateRewardWindow.Controls[0].Parent = _currentCreateRewardWindow;
+
+            _currentCreateRewardWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            _currentCreateRewardWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            _currentCreateRewardWindow.Show();
+            _currentCreateRewardWindow.Size = new System.Drawing.Size(385, 180);
         }
     }
 }

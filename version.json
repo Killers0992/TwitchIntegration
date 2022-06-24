@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.3",
-  "Changelog": [
-    "Add interface"
+  "Version": "1.0.4",
+  "Changelogs": [
+    "- Added rewards tab."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

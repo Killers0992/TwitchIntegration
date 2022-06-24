@@ -13,7 +13,7 @@ namespace TwitchIntegration
 
         public override string Name { get; } = "Twitch Integration";
         public override string Author { get; } = "Killers0992";
-        public override Version Version { get; } = new Version(1, 0, 0);
+        public override Version Version { get; } = new Version(1, 0, 4);
         public override PoisonUserControl MainPanel { get; }
 
         public static MainClass Instance;
@@ -33,9 +33,9 @@ namespace TwitchIntegration
                 {
                     OnCommand = new Dictionary<string, TwitchCommand>() { { "test", new TwitchCommand() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } } } },
                     OnBeingHosted = new List<TwitchHost>() { new TwitchHost() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } } },
-                    OnNewSubscriber = new List<TwitchNewSub>() { new TwitchNewSub() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } }, SubPlans = new List<SubscriptionPlan>() { SubscriptionPlan.NotSet, SubscriptionPlan.Prime, SubscriptionPlan.Tier1, SubscriptionPlan.Tier2 } } },
+                    OnNewSubscriber = new List<TwitchNewSub>() { new TwitchNewSub() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } }, SubPlans = new List<SubscriptionPlan>() { SubscriptionPlan.Prime, SubscriptionPlan.Tier1, SubscriptionPlan.Tier2 } } },
                     OnReceiveBits = new List<TwitchBits>() { new TwitchBits() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } } },
-                    OnReSubscriber = new List<TwitchReSub>() { new TwitchReSub() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } }, SubPlans = new List<SubscriptionPlan>() { SubscriptionPlan.NotSet, SubscriptionPlan.Prime, SubscriptionPlan.Tier1, SubscriptionPlan.Tier2 } } },
+                    OnReSubscriber = new List<TwitchReSub>() { new TwitchReSub() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } }, SubPlans = new List<SubscriptionPlan>() { SubscriptionPlan.Prime, SubscriptionPlan.Tier1, SubscriptionPlan.Tier2 } } },
                     OnReward = new Dictionary<string, TwitchReward>() { { "<REWARD ID>", new TwitchReward() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } } } },
                     OnUserBanned = new TwitchBan() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } },
                     OnUserTimedout = new TwitchTimedout() { OscOutActions = new List<OscOutAction>() { new OscOutAction() { Value = 1, DefaultValue = 0 } } },

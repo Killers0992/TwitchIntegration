@@ -1,4 +1,7 @@
-﻿namespace TwitchIntegration.Services
+﻿using TwitchLib.Api.Helix.Models.ChannelPoints;
+using TwitchLib.Api.Helix.Models.ChannelPoints.GetCustomReward;
+
+namespace TwitchIntegration.Services
 {
     public class TwitchBot : BackgroundService
     {
@@ -7,6 +10,7 @@
 
         public static string TwitchName;
         public static string ChannelName;
+        public static string UserID;
 
         public static bool IsConnectedToTwitchChat;
         public static bool IsConnectedToTwitchPubSub;
@@ -46,13 +50,14 @@
                     goto retry;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Info("ERROR", ex.ToString(), Color.Red, Color.White);
                 var result = MessageBox.Show("OAuth token is invalid, do you want login via twitch?", "Failed connecting to Twitch", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
                     AuthProviders.CreateTwitchAuth("chat:read+channel:read:redemptions+channel:read:subscriptions");
-                    MessageBox.Show("Twitch Auth", "After login copy token from browser and paste in settings tab of twitch integration.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("After login copy token from browser and paste in settings tab of twitch integration.", "Twitch Auth", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 WaitingForAction = true;

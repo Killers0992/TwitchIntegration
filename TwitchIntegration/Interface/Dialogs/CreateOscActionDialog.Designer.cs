@@ -216,7 +216,6 @@
             this.confirmButton.TabIndex = 9;
             this.confirmButton.Text = "Confirm";
             this.confirmButton.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.confirmButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // cancelButton
             // 
@@ -259,16 +258,15 @@
         }
 
         #endregion
-
-        private ReaLTaiizor.Controls.PoisonTextBox actionName;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
-        private ReaLTaiizor.Controls.ForeverNumeric executionDuration;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel2;
-        private ReaLTaiizor.Controls.PoisonTextBox value;
-        private ReaLTaiizor.Controls.PoisonTextBox defaultValue;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel3;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel4;
-        private ReaLTaiizor.Controls.Button confirmButton;
         private ReaLTaiizor.Controls.Button cancelButton;
+        public ReaLTaiizor.Controls.Button confirmButton;
+        public PoisonTextBox actionName;
+        public ForeverNumeric executionDuration;
+        public PoisonTextBox value;
+        public PoisonTextBox defaultValue;
     }
 }
