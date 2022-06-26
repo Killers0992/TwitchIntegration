@@ -34,6 +34,9 @@
     <Compile Update="Interface\Dialogs\EditRewardDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Interface\Entries\TwitchLogin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Interface\Entries\RewardItem.cs">
       <SubType>UserControl</SubType>
     </Compile>

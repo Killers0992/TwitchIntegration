@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.poisonTabControl1 = new ReaLTaiizor.Controls.PoisonTabControl();
             this.Tab0 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.twitchLogin = new TwitchIntegration.Interface.TwitchLogin();
             this.pubsubSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
             this.chatSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
             this.version = new ReaLTaiizor.Controls.PoisonLabel();
@@ -57,6 +58,8 @@
             this.poisonStyleExtender = new ReaLTaiizor.Controls.PoisonStyleExtender(this.components);
             this.materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.materialCheckBox2 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.poisonTabControl1.SuspendLayout();
             this.Tab0.SuspendLayout();
             this.poisonTabPage2.SuspendLayout();
@@ -75,7 +78,7 @@
             this.poisonTabControl1.Controls.Add(this.poisonTabPage3);
             this.poisonTabControl1.Controls.Add(this.poisonTabPage5);
             this.poisonTabControl1.Controls.Add(this.poisonTabPage4);
-            this.poisonTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.poisonTabControl1.Location = new System.Drawing.Point(3, 3);
             this.poisonTabControl1.Name = "poisonTabControl1";
             this.poisonTabControl1.Padding = new System.Drawing.Point(6, 8);
             this.poisonTabControl1.SelectedIndex = 0;
@@ -88,6 +91,7 @@
             // Tab0
             // 
             this.Tab0.AutoScroll = true;
+            this.Tab0.Controls.Add(this.twitchLogin);
             this.Tab0.Controls.Add(this.pubsubSpinner);
             this.Tab0.Controls.Add(this.chatSpinner);
             this.Tab0.Controls.Add(this.version);
@@ -113,6 +117,21 @@
             this.Tab0.VerticalScrollbarBarColor = true;
             this.Tab0.VerticalScrollbarHighlightOnWheel = false;
             this.Tab0.VerticalScrollbarSize = 10;
+            // 
+            // twitchLogin
+            // 
+            this.twitchLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.twitchLogin.AutoSize = true;
+            this.twitchLogin.Location = new System.Drawing.Point(160, 56);
+            this.twitchLogin.Name = "twitchLogin";
+            this.twitchLogin.Size = new System.Drawing.Size(397, 180);
+            this.twitchLogin.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.twitchLogin.TabIndex = 1;
+            this.twitchLogin.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.twitchLogin.UseSelectable = true;
+            this.twitchLogin.Visible = false;
             // 
             // pubsubSpinner
             // 
@@ -236,10 +255,10 @@
             this.poisonTabPage2.HorizontalScrollbarBarColor = true;
             this.poisonTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage2.HorizontalScrollbarSize = 10;
-            this.poisonTabPage2.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage2.Location = new System.Drawing.Point(4, 35);
             this.poisonTabPage2.Name = "poisonTabPage2";
             this.poisonTabPage2.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage2.Size = new System.Drawing.Size(712, 340);
+            this.poisonTabPage2.Size = new System.Drawing.Size(712, 343);
             this.poisonTabPage2.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage2.TabIndex = 1;
             this.poisonTabPage2.Text = "Commands";
@@ -280,10 +299,10 @@
             this.poisonTabPage3.HorizontalScrollbarBarColor = true;
             this.poisonTabPage3.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage3.HorizontalScrollbarSize = 10;
-            this.poisonTabPage3.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage3.Location = new System.Drawing.Point(4, 35);
             this.poisonTabPage3.Name = "poisonTabPage3";
             this.poisonTabPage3.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage3.Size = new System.Drawing.Size(712, 340);
+            this.poisonTabPage3.Size = new System.Drawing.Size(712, 343);
             this.poisonTabPage3.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage3.TabIndex = 2;
             this.poisonTabPage3.Text = "Rewards";
@@ -324,9 +343,9 @@
             this.poisonTabPage5.HorizontalScrollbarBarColor = true;
             this.poisonTabPage5.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage5.HorizontalScrollbarSize = 10;
-            this.poisonTabPage5.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage5.Location = new System.Drawing.Point(4, 35);
             this.poisonTabPage5.Name = "poisonTabPage5";
-            this.poisonTabPage5.Size = new System.Drawing.Size(712, 340);
+            this.poisonTabPage5.Size = new System.Drawing.Size(712, 343);
             this.poisonTabPage5.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
             this.poisonTabPage5.TabIndex = 3;
             this.poisonTabPage5.Text = "Subscriptions";
@@ -346,10 +365,10 @@
             this.poisonTabPage4.HorizontalScrollbarBarColor = true;
             this.poisonTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.poisonTabPage4.HorizontalScrollbarSize = 10;
-            this.poisonTabPage4.Location = new System.Drawing.Point(4, 38);
+            this.poisonTabPage4.Location = new System.Drawing.Point(4, 35);
             this.poisonTabPage4.Name = "poisonTabPage4";
             this.poisonTabPage4.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage4.Size = new System.Drawing.Size(712, 340);
+            this.poisonTabPage4.Size = new System.Drawing.Size(712, 343);
             this.poisonTabPage4.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabPage4.TabIndex = 3;
             this.poisonTabPage4.Text = "Settings";
@@ -488,6 +507,12 @@
             this.materialCheckBox2.Text = "Log1";
             this.materialCheckBox2.UseVisualStyleBackColor = true;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -540,5 +565,8 @@
         private PoisonButton addNewCommand;
         private PoisonButton addReward;
         private FlowLayoutPanel rewards;
+        private TwitchLogin twitchLogin;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

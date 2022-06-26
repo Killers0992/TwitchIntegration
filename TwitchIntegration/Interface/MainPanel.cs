@@ -9,7 +9,7 @@ namespace TwitchIntegration.Interface
 
         public static bool Loaded;
         public static bool Initialized;
-
+        public static bool ShowLogin;
 
         private PoisonTaskWindow _currentCreateCommandWindow;
         private PoisonTaskWindow _currentCreateRewardWindow;
@@ -211,6 +211,21 @@ namespace TwitchIntegration.Interface
             _currentCreateRewardWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             _currentCreateRewardWindow.Show();
             _currentCreateRewardWindow.Size = new System.Drawing.Size(385, 180);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (ShowLogin && !twitchLogin.Visible)
+            {
+                ShowLogin = false;
+                twitchLogin.Visible = true;
+                return;
+            }
+
+            if (TwitchBot.IsConnectedToTwitchChat && twitchLogin.Visible)
+            {
+                twitchLogin.Visible = false;
+            }
         }
     }
 }

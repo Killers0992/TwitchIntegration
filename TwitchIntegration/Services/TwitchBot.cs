@@ -52,12 +52,12 @@ namespace TwitchIntegration.Services
             }
             catch (Exception ex)
             {
-                Logger.Info("ERROR", ex.ToString(), Color.Red, Color.White);
-                var result = MessageBox.Show("OAuth token is invalid, do you want login via twitch?", "Failed connecting to Twitch", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                MainPanel.ShowLogin = true;
+                var result = MessageBox.Show("OAuth token is invalid, do you want login via twitch?", "Twitch Integration", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (result == DialogResult.Yes)
                 {
                     AuthProviders.CreateTwitchAuth("chat:read+channel:read:redemptions+channel:read:subscriptions");
-                    MessageBox.Show("After login copy token from browser and paste in settings tab of twitch integration.", "Twitch Auth", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("After login copy token from browser and paste in twitch integration.", "Twitch Integration", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 WaitingForAction = true;

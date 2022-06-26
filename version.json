@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.4",
+  "Version": "1.0.5",
   "Changelogs": [
-    "- Added rewards tab."
+    "- Changed twitch login."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"
