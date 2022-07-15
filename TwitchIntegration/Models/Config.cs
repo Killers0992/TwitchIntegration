@@ -3,6 +3,28 @@ using YamlDotNet.Serialization;
 
 namespace TwitchIntegration.Models
 {
+    public class Config
+    {
+        public static bool Import(string file)
+        {
+            if (!File.Exists(file)) return false;
+
+            var fileExtension = Path.GetExtension(file);
+
+            switch (fileExtension)
+            {
+                case ".json":
+                    var jsonConfig = JsonConvert.DeserializeObject<IntegrationConfig>(File.ReadAllText(file));
+
+                    MainClass.Instance.Config.CopyProperties(jsonConfig);
+                    MainClass.Instance.SaveConfig();
+                    break;
+            }
+
+            return true;
+        }
+    }
+
     public class StreamLabsApp
     {
         [YamlMember(Description = "If you are using streamlabs for donations enable this.")]

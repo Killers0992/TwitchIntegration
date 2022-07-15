@@ -15,6 +15,7 @@ namespace TwitchIntegration.Models.Twitch
         [YamlMember(Description = "Global delay between next usage of this event.")]
         public TimeSpan GlobalDelay { get; set; } = TimeSpan.Zero;
 
+        [JsonIgnore]
         [YamlIgnore]
         public DateTime CurrentGlobalDelay = DateTime.Now;
 

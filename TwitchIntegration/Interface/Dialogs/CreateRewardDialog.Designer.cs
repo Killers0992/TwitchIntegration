@@ -149,11 +149,11 @@
 
         #endregion
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
-        private ReaLTaiizor.Controls.Button confirmButton;
         private ReaLTaiizor.Controls.Button cancelButton;
         private PoisonLabel waitingLabel;
         private PoisonProgressSpinner waitingSpinner;
         private System.Windows.Forms.Timer actionCheck;
         private PoisonLabel rewardInfo;
+        public ReaLTaiizor.Controls.Button confirmButton;
     }
 }

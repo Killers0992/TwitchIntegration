@@ -297,6 +297,7 @@
             this.changeReward.Text = "Change assigned reward";
             this.changeReward.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.changeReward.UseSelectable = true;
+            this.changeReward.Click += new System.EventHandler(this.changeReward_Click);
             // 
             // EditRewardDialog
             // 

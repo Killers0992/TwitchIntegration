@@ -7,6 +7,7 @@ namespace TwitchIntegration.Interface.Dialogs
     {
         private RewarddItem _mainPanel;
         private PoisonTaskWindow _currentAddOscWindow;
+        private PoisonTaskWindow _currentRewardWindow;
 
         public EditRewardDialog(RewarddItem panel)
         {
@@ -226,6 +227,48 @@ namespace TwitchIntegration.Interface.Dialogs
             _currentAddOscWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             _currentAddOscWindow.Show();
             _currentAddOscWindow.Size = new System.Drawing.Size(325, 282);
+        }
+
+        private void changeReward_Click(object sender, EventArgs e)
+        {
+            if (_currentRewardWindow != null)
+            {
+                _currentRewardWindow.Close();
+                _currentRewardWindow.Dispose();
+                _currentRewardWindow = null;
+            }
+
+            var control = new CreateRewardDialog(null, false);
+            control.confirmButton.Click += (ev, o) =>
+            {
+                var save = MainClass.Instance.Config.Events.OnReward[RewardID];
+                if (RewardID == CreateRewardDialog.LastReward.Id) return;
+                MainClass.Instance.Config.Events.OnReward.Remove(RewardID);
+
+                save.RewardName = CreateRewardDialog.LastReward.Title;
+                MainClass.Instance.Config.Events.OnReward.Add(CreateRewardDialog.LastReward.Id, save);
+
+                this.RewardID = CreateRewardDialog.LastReward.Id;
+
+                _mainPanel.RewardID = RewardID;
+                _mainPanel.RewardName = save.RewardName + $" ({RewardID})";
+            };
+
+            _currentRewardWindow = new PoisonTaskWindow(0, control)
+            {
+                Text = "Assign reward",
+                Resizable = false,
+                MinimizeBox = false,
+                MaximizeBox = false,
+                Movable = true,
+                WindowState = FormWindowState.Normal,
+            };
+            _currentRewardWindow.Controls[0].Parent = _currentRewardWindow;
+
+            _currentRewardWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            _currentRewardWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            _currentRewardWindow.Show();
+            _currentRewardWindow.Size = new System.Drawing.Size(385, 180);
         }
     }
 }

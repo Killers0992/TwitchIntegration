@@ -4,8 +4,10 @@ namespace TwitchIntegration.Models.Twitch
 {
     public class TwitchReward
     {
+        [JsonIgnore]
         [YamlIgnore]
         DateTime CurrentGlobalDelay = DateTime.Now;
+        [JsonIgnore]
         [YamlIgnore]
         Dictionary<string, DateTime> CurrentUserDelays = new Dictionary<string, DateTime>();
 

@@ -44,7 +44,6 @@
             this.CommandsTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.addNewCommand = new ReaLTaiizor.Controls.PoisonButton();
             this.commands = new System.Windows.Forms.FlowLayoutPanel();
-            this.poisonLabel3 = new ReaLTaiizor.Controls.PoisonLabel();
             this.RewardsTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.addReward = new ReaLTaiizor.Controls.PoisonButton();
             this.rewards = new System.Windows.Forms.FlowLayoutPanel();
@@ -72,10 +71,12 @@
             this.materialCheckBox2 = new ReaLTaiizor.Controls.MaterialCheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
+            this.Misc = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonTabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.CommandsTab.SuspendLayout();
-            this.commands.SuspendLayout();
             this.RewardsTab.SuspendLayout();
             this.SubscriptionsTab.SuspendLayout();
             this.BitsTab.SuspendLayout();
@@ -113,6 +114,8 @@
             // 
             this.MainTab.AutoScroll = true;
             this.MainTab.Controls.Add(this.twitchLogin);
+            this.MainTab.Controls.Add(this.Misc);
+            this.MainTab.Controls.Add(this.poisonButton1);
             this.MainTab.Controls.Add(this.pubsubSpinner);
             this.MainTab.Controls.Add(this.chatSpinner);
             this.MainTab.Controls.Add(this.version);
@@ -302,25 +305,11 @@
             this.poisonStyleExtender.SetApplyPoisonTheme(this.commands, true);
             this.commands.AutoScroll = true;
             this.commands.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.commands.Controls.Add(this.poisonLabel3);
             this.commands.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.commands.Location = new System.Drawing.Point(3, 3);
             this.commands.Name = "commands";
             this.commands.Size = new System.Drawing.Size(855, 232);
             this.commands.TabIndex = 2;
-            // 
-            // poisonLabel3
-            // 
-            this.poisonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.poisonLabel3.AutoSize = true;
-            this.poisonLabel3.Location = new System.Drawing.Point(3, 0);
-            this.poisonLabel3.Name = "poisonLabel3";
-            this.poisonLabel3.Size = new System.Drawing.Size(86, 19);
-            this.poisonLabel3.TabIndex = 0;
-            this.poisonLabel3.Text = "poisonLabel3";
-            this.poisonLabel3.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
             // RewardsTab
             // 
@@ -709,6 +698,31 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // poisonButton1
+            // 
+            this.poisonButton1.Location = new System.Drawing.Point(615, 56);
+            this.poisonButton1.Name = "poisonButton1";
+            this.poisonButton1.Size = new System.Drawing.Size(109, 23);
+            this.poisonButton1.TabIndex = 17;
+            this.poisonButton1.Text = "Import Old Config";
+            this.poisonButton1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonButton1.UseSelectable = true;
+            this.poisonButton1.Click += new System.EventHandler(this.poisonButton1_Click);
+            // 
+            // Misc
+            // 
+            this.Misc.AutoSize = true;
+            this.Misc.Location = new System.Drawing.Point(615, 34);
+            this.Misc.Name = "Misc";
+            this.Misc.Size = new System.Drawing.Size(35, 19);
+            this.Misc.TabIndex = 18;
+            this.Misc.Text = "Misc";
+            this.Misc.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            // 
             // MainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -723,8 +737,6 @@
             this.MainTab.ResumeLayout(false);
             this.MainTab.PerformLayout();
             this.CommandsTab.ResumeLayout(false);
-            this.commands.ResumeLayout(false);
-            this.commands.PerformLayout();
             this.RewardsTab.ResumeLayout(false);
             this.SubscriptionsTab.ResumeLayout(false);
             this.BitsTab.ResumeLayout(false);
@@ -780,6 +792,8 @@
         private FlowLayoutPanel hosts;
         private TwitchLogin twitchLogin;
         private PoisonTabPage BanTab;
-        private PoisonLabel poisonLabel3;
+        private OpenFileDialog openFileDialog1;
+        private PoisonLabel Misc;
+        private PoisonButton poisonButton1;
     }
 }

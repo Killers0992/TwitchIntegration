@@ -301,7 +301,7 @@ namespace TwitchIntegration.Interface
             rewItem.Width = rewards.Width - 25;
 
             rewItem.RewardID = rewardID;
-            rewItem.RewardName = rewardName;
+            rewItem.RewardName = rewardName + $" ({rewardID})";
 
             rewards.Controls.Add(rewItem);
         }
@@ -473,49 +473,13 @@ namespace TwitchIntegration.Interface
         }
         #endregion
 
-        private void followActions_Paint(object sender, PaintEventArgs e)
+        private void poisonButton1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void followAddAction_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followRandomAction_SwitchedChanged(object sender)
-        {
-
-        }
-
-        private void poisonLabel17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void poisonLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followGlobalS_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void poisonLabel11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void followGlobalM_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void poisonLabel10_Click(object sender, EventArgs e)
-        {
-
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Config.Import(openFileDialog1.FileName);
+                MessageBox.Show("Config imported, restart application!");
+            }
         }
     }
 }
