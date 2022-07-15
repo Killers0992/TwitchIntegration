@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.5",
+  "Version": "1.0.6",
   "Changelogs": [
-    "- Changed twitch login."
+    "- Added more tabs."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

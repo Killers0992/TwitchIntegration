@@ -3,15 +3,21 @@ using TwitchIntegration.Models.Twitch;
 
 namespace TwitchIntegration.Interface.Dialogs
 {
-    public partial class EditRewardDialog : PoisonUserControl, IActionRemovable
+    public partial class EditNewSubscriptionDialog : PoisonUserControl, IActionRemovable
     {
-        private RewarddItem _mainPanel;
+        private bool _isUpdating;
+        private SubItem _mainPanel;
         private PoisonTaskWindow _currentAddOscWindow;
 
-        public EditRewardDialog(RewarddItem panel)
+        public EditNewSubscriptionDialog(SubItem panel)
         {
             _mainPanel = panel;
             InitializeComponent();
+
+            tier1.SwitchedChanged += UpdatePlans;
+            tier2.SwitchedChanged += UpdatePlans;
+            tier3.SwitchedChanged += UpdatePlans;
+            prime.SwitchedChanged += UpdatePlans;
 
             randomAction.SwitchedChanged += OnRandomChanged;
 
@@ -19,58 +25,39 @@ namespace TwitchIntegration.Interface.Dialogs
             globalM.ValueChanged += OnGlobalChanged;
             globalS.ValueChanged += OnGlobalChanged;
 
-            userH.ValueChanged += OnUserChanged;
-            userM.ValueChanged += OnUserChanged;
-            userS.ValueChanged += OnUserChanged;
-
-            RewardID = _mainPanel.RewardID;
+            ID = _mainPanel.ItemIndex;
             Init();
         }
 
         private void OnGlobalChanged(object sender, EventArgs e)
         {
-            MainClass.Instance.Config.Events.OnReward[RewardID].GlobalDelay = new TimeSpan((int)globalH.Value, (int)globalM.Value, (int)globalS.Value);
+            MainClass.Instance.Config.Events.OnNewSubscriber[ID].GlobalDelay = new TimeSpan((int)globalH.Value, (int)globalM.Value, (int)globalS.Value);
         }
 
-        private void OnUserChanged(object sender, EventArgs e)
-        {
-            MainClass.Instance.Config.Events.OnReward[RewardID].DelayPerUser = new TimeSpan((int)userH.Value, (int)userM.Value, (int)userS.Value);
-        }
-
-
-        string _rewardId;
-        public string RewardID
-        {
-            get
-            {
-                return _rewardId;
-            }
-            set
-            {
-                _rewardId = value;
-                if (rewardId.Text != value)
-                    rewardId.Text = value;
-            }
-        }
+        public int ID { get; set; }
 
         public void Init()
         {
-            RandomExecution = MainClass.Instance.Config.Events.OnReward[RewardID].ExecuteRandomAction;
-            globalH.Value = MainClass.Instance.Config.Events.OnReward[RewardID].GlobalDelay.Hours;
-            globalM.Value = MainClass.Instance.Config.Events.OnReward[RewardID].GlobalDelay.Minutes;
-            globalS.Value = MainClass.Instance.Config.Events.OnReward[RewardID].GlobalDelay.Seconds;
+            _isUpdating = true;
+            Tier1 = MainClass.Instance.Config.Events.OnNewSubscriber[ID].SubPlans.Contains(SubscriptionPlan.Tier1);
+            Tier2 = MainClass.Instance.Config.Events.OnNewSubscriber[ID].SubPlans.Contains(SubscriptionPlan.Tier2);
+            Tier3 = MainClass.Instance.Config.Events.OnNewSubscriber[ID].SubPlans.Contains(SubscriptionPlan.Tier3);
+            Prime = MainClass.Instance.Config.Events.OnNewSubscriber[ID].SubPlans.Contains(SubscriptionPlan.Prime);
 
-            userH.Value = MainClass.Instance.Config.Events.OnReward[RewardID].DelayPerUser.Hours;
-            userM.Value = MainClass.Instance.Config.Events.OnReward[RewardID].DelayPerUser.Minutes;
-            userS.Value = MainClass.Instance.Config.Events.OnReward[RewardID].DelayPerUser.Seconds;
+            RandomExecution = MainClass.Instance.Config.Events.OnNewSubscriber[ID].ExecuteRandomAction;
+
+            globalH.Value = MainClass.Instance.Config.Events.OnNewSubscriber[ID].GlobalDelay.Hours;
+            globalM.Value = MainClass.Instance.Config.Events.OnNewSubscriber[ID].GlobalDelay.Minutes;
+            globalS.Value = MainClass.Instance.Config.Events.OnNewSubscriber[ID].GlobalDelay.Seconds;
 
             LoadActions();
+            _isUpdating = false;
         }
 
         public void LoadActions()
         {
             OscActions = new List<OscOutAction>();
-            OscActions = MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions;
+            OscActions = MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions;
         }
 
         public void RemoveAction(Control control)
@@ -82,18 +69,15 @@ namespace TwitchIntegration.Interface.Dialogs
         {
             if (id == -1)
             {
-                if (MainClass.Instance.Config.Events.OnReward.TryGetValue(RewardID, out TwitchReward cmd))
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions.Add(new OscOutAction()
                 {
-                    cmd.OscOutActions.Add(new OscOutAction()
-                    {
-                        ActionName = actionName,
-                        ExecutionDuration = duration,
-                        Value = value.ConvertStringToObject(),
-                        DefaultValue = defaultValue.ConvertStringToObject(),
-                    });
-                    id = cmd.OscOutActions.Count - 1;
-                    MainClass.Instance.SaveConfig();
-                }
+                    ActionName = actionName,
+                    ExecutionDuration = duration,
+                    Value = value.ConvertStringToObject(),
+                    DefaultValue = defaultValue.ConvertStringToObject(),
+                });
+                id = MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions.Count - 1;
+                MainClass.Instance.SaveConfig();
             }
 
             var item = new OscItem(this);
@@ -101,34 +85,34 @@ namespace TwitchIntegration.Interface.Dialogs
 
             item.actionName.LostFocus += (o, e) =>
             {
-                MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions[item.ID].ActionName = item.actionName.Text;
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].ActionName = item.actionName.Text;
                 MainClass.Instance.SaveConfig();
             };
             item.executionDuration.TextChanged += (o, e) =>
             {
-                MainClass.Instance.Config.Events.OnCommand[RewardID].OscOutActions[item.ID].ExecutionDuration = (int)item.executionDuration.Value;
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].ExecutionDuration = (int)item.executionDuration.Value;
                 MainClass.Instance.SaveConfig();
             };
             item.oscValue.TextChanged += (o, e) =>
             {
                 var parsed = item.oscValue.Text.ConvertStringToObject();
-                var currentValue = MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions[item.ID].Value;
+                var currentValue = MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].Value;
 
                 if (currentValue == parsed)
                     return;
 
-                MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions[item.ID].Value = parsed;
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].Value = parsed;
                 MainClass.Instance.SaveConfig();
             };
             item.defaultValue.TextChanged += (o, e) =>
             {
                 var parsed = item.defaultValue.Text.ConvertStringToObject();
-                var currentValue = MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions[item.ID].DefaultValue;
+                var currentValue = MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].DefaultValue;
 
                 if (currentValue == parsed)
                     return;
 
-                MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions[item.ID].DefaultValue = parsed;
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions[item.ID].DefaultValue = parsed;
                 MainClass.Instance.SaveConfig();
             };
             item.removeAction.Click += (o, e) =>
@@ -136,7 +120,7 @@ namespace TwitchIntegration.Interface.Dialogs
                 if (MessageBox.Show($"Do you want to remove action {item.ActionName}?", "Remove action", MessageBoxButtons.YesNo, MessageBoxIcon.Information) != DialogResult.Yes)
                     return;
 
-                MainClass.Instance.Config.Events.OnReward[RewardID].OscOutActions.RemoveAt(item.ID);
+                MainClass.Instance.Config.Events.OnNewSubscriber[ID].OscOutActions.RemoveAt(item.ID);
                 MainClass.Instance.SaveConfig();
                 item.ParentPanel.RemoveAction(item);
             };
@@ -149,6 +133,87 @@ namespace TwitchIntegration.Interface.Dialogs
 
             if (scroll)
                 oscActions.ScrollControlIntoView(item);
+        }
+
+        public void UpdatePlans(object sender)
+        {
+            if (_isUpdating) return;
+
+            var newPlans = new List<SubscriptionPlan>();
+            if (tier1.Switched)
+                newPlans.Add(SubscriptionPlan.Tier1);
+            if (tier2.Switched)
+                newPlans.Add(SubscriptionPlan.Tier2);
+            if (tier3.Switched)
+                newPlans.Add(SubscriptionPlan.Tier3);
+            if (prime.Switched)
+                newPlans.Add(SubscriptionPlan.Prime);
+
+            MainClass.Instance.Config.Events.OnNewSubscriber[ID].SubPlans = newPlans;
+            MainClass.Instance.SaveConfig();
+
+            _mainPanel.UpdateItem(true);
+        }
+
+        //
+        bool _tier1;
+        [Category("Tier1 Info")]
+        public bool Tier1
+        {
+            get
+            {
+                return _tier1;
+            }
+            set
+            {
+                _tier1 = value;
+                tier1.Switched = value;
+            }
+        }
+
+        bool _tier2;
+        [Category("Tier2 Info")]
+        public bool Tier2
+        {
+            get
+            {
+                return _tier2;
+            }
+            set
+            {
+                _tier2 = value;
+                tier2.Switched = value;
+            }
+        }
+        //
+        bool _tier3;
+        [Category("Tier3 Info")]
+        public bool Tier3
+        {
+            get
+            {
+                return _tier3;
+            }
+            set
+            {
+                _tier3 = value;
+                tier3.Switched = value;
+            }
+        }
+
+        bool _prime;
+        [Category("Prime Info")]
+        public bool Prime
+        {
+            get
+            {
+                return _prime;
+            }
+            set
+            {
+                _prime = value;
+                prime.Switched = value;
+            }
         }
 
         bool _randomExecution;
@@ -167,7 +232,9 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnRandomChanged(object sender)
         {
-            MainClass.Instance.Config.Events.OnReward[RewardID].ExecuteRandomAction = randomAction.Switched;
+            if (_isUpdating) return;
+
+            MainClass.Instance.Config.Events.OnNewSubscriber[ID].ExecuteRandomAction = randomAction.Switched;
             MainClass.Instance.SaveConfig();
         }
 
@@ -210,7 +277,7 @@ namespace TwitchIntegration.Interface.Dialogs
                 AddNewAction(-1, control.actionName.Text, (int)control.executionDuration.Value, control.value.Text, control.defaultValue.Text, true);
                 control.ParentForm.Close();
             };
- 
+
             _currentAddOscWindow = new PoisonTaskWindow(0, control)
             {
                 Text = "Add OSC Action",

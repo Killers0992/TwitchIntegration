@@ -69,7 +69,7 @@
             // 
             this.delete.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Tall;
             this.delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.delete.Location = new System.Drawing.Point(602, 10);
+            this.delete.Location = new System.Drawing.Point(785, 10);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(35, 26);
             this.delete.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
@@ -84,7 +84,7 @@
             // 
             this.edit.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Tall;
             this.edit.ForeColor = System.Drawing.Color.Lime;
-            this.edit.Location = new System.Drawing.Point(561, 10);
+            this.edit.Location = new System.Drawing.Point(744, 10);
             this.edit.Name = "edit";
             this.edit.Size = new System.Drawing.Size(35, 26);
             this.edit.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
@@ -104,7 +104,7 @@
             this.Controls.Add(this.delete);
             this.Controls.Add(this.commandName);
             this.Name = "CommandItem";
-            this.Size = new System.Drawing.Size(649, 48);
+            this.Size = new System.Drawing.Size(829, 48);
             this.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.ResumeLayout(false);

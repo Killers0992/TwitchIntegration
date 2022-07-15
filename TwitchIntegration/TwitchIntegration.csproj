@@ -5,6 +5,8 @@
 	    <UseWindowsForms>true</UseWindowsForms>
 	    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 	    <OutputType>library</OutputType>
+	    <RunPostBuildEvent>Always</RunPostBuildEvent>
+	    <SignAssembly>True</SignAssembly>
     </PropertyGroup>
 
     <ItemGroup>
@@ -23,21 +25,54 @@
 
     <ItemGroup>
       <Reference Include="VrcOscIntegrations">
-        <HintPath>..\..\VrcOscIntegrations\VrcOscIntegrations\bin\Debug\net6.0-windows10.0.17763.0\VrcOscIntegrations.dll</HintPath>
+        <HintPath>..\..\VrcOscIntegrations\VrcOscIntegrations\bin\Debug\net6.0-windows\VrcOscIntegrations.dll</HintPath>
       </Reference>
     </ItemGroup>
 
     <ItemGroup>
+    <Compile Update="Interface\Dialogs\CreateSubscriptionDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Interface\Dialogs\CreateRewardDialog.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Interface\Dialogs\EditHostDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Dialogs\EditNewSubscriptionDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Dialogs\EditBitsDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Dialogs\EditReSubscriptionDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Interface\Dialogs\EditRewardDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Entries\HostItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Entries\BitsItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Entries\SubItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Interface\Entries\TwitchLogin.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Interface\Entries\RewardItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Tabs\TimedOutTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Tabs\BanTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Interface\Tabs\FollowTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -53,4 +88,8 @@
         <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="copy /Y &quot;$(TargetDir)TwitchIntegration.dll&quot; &quot;C:\Users\Kille\Documents\VrcOscIntegrations\Integrations\TwitchIntegration.dll&quot;&#xD;&#xA;" />
+    </Target>
 </Project>

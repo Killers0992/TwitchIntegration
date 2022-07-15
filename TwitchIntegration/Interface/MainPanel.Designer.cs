@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.poisonTabControl1 = new ReaLTaiizor.Controls.PoisonTabControl();
-            this.Tab0 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.MainTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.twitchLogin = new TwitchIntegration.Interface.TwitchLogin();
             this.pubsubSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
             this.chatSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
@@ -41,14 +41,26 @@
             this.poisonLabel8 = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonLabel9 = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
-            this.poisonTabPage2 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.CommandsTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.addNewCommand = new ReaLTaiizor.Controls.PoisonButton();
             this.commands = new System.Windows.Forms.FlowLayoutPanel();
-            this.poisonTabPage3 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.poisonLabel3 = new ReaLTaiizor.Controls.PoisonLabel();
+            this.RewardsTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.addReward = new ReaLTaiizor.Controls.PoisonButton();
             this.rewards = new System.Windows.Forms.FlowLayoutPanel();
-            this.poisonTabPage5 = new ReaLTaiizor.Controls.PoisonTabPage();
-            this.poisonTabPage4 = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.SubscriptionsTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.addSub = new ReaLTaiizor.Controls.PoisonButton();
+            this.subscriptions = new System.Windows.Forms.FlowLayoutPanel();
+            this.BitsTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.addBits = new ReaLTaiizor.Controls.PoisonButton();
+            this.bits = new System.Windows.Forms.FlowLayoutPanel();
+            this.HostTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.addhost = new ReaLTaiizor.Controls.PoisonButton();
+            this.hosts = new System.Windows.Forms.FlowLayoutPanel();
+            this.followTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.BanTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.TimedoutTab = new ReaLTaiizor.Controls.PoisonTabPage();
+            this.SettingsTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.debugSwitch = new ReaLTaiizor.Controls.MetroSwitch();
             this.poisonLabel2 = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonLabel15 = new ReaLTaiizor.Controls.PoisonLabel();
@@ -61,10 +73,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.poisonTabControl1.SuspendLayout();
-            this.Tab0.SuspendLayout();
-            this.poisonTabPage2.SuspendLayout();
-            this.poisonTabPage3.SuspendLayout();
-            this.poisonTabPage4.SuspendLayout();
+            this.MainTab.SuspendLayout();
+            this.CommandsTab.SuspendLayout();
+            this.commands.SuspendLayout();
+            this.RewardsTab.SuspendLayout();
+            this.SubscriptionsTab.SuspendLayout();
+            this.BitsTab.SuspendLayout();
+            this.HostTab.SuspendLayout();
+            this.SettingsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,65 +89,66 @@
             this.poisonTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.poisonTabControl1.Controls.Add(this.Tab0);
-            this.poisonTabControl1.Controls.Add(this.poisonTabPage2);
-            this.poisonTabControl1.Controls.Add(this.poisonTabPage3);
-            this.poisonTabControl1.Controls.Add(this.poisonTabPage5);
-            this.poisonTabControl1.Controls.Add(this.poisonTabPage4);
+            this.poisonTabControl1.Controls.Add(this.MainTab);
+            this.poisonTabControl1.Controls.Add(this.CommandsTab);
+            this.poisonTabControl1.Controls.Add(this.RewardsTab);
+            this.poisonTabControl1.Controls.Add(this.SubscriptionsTab);
+            this.poisonTabControl1.Controls.Add(this.BitsTab);
+            this.poisonTabControl1.Controls.Add(this.HostTab);
+            this.poisonTabControl1.Controls.Add(this.followTab);
+            this.poisonTabControl1.Controls.Add(this.BanTab);
+            this.poisonTabControl1.Controls.Add(this.TimedoutTab);
+            this.poisonTabControl1.Controls.Add(this.SettingsTab);
             this.poisonTabControl1.Location = new System.Drawing.Point(3, 3);
             this.poisonTabControl1.Name = "poisonTabControl1";
             this.poisonTabControl1.Padding = new System.Drawing.Point(6, 8);
             this.poisonTabControl1.SelectedIndex = 0;
-            this.poisonTabControl1.Size = new System.Drawing.Size(720, 382);
+            this.poisonTabControl1.Size = new System.Drawing.Size(865, 303);
             this.poisonTabControl1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.poisonTabControl1.TabIndex = 0;
             this.poisonTabControl1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.poisonTabControl1.UseSelectable = true;
             // 
-            // Tab0
+            // MainTab
             // 
-            this.Tab0.AutoScroll = true;
-            this.Tab0.Controls.Add(this.twitchLogin);
-            this.Tab0.Controls.Add(this.pubsubSpinner);
-            this.Tab0.Controls.Add(this.chatSpinner);
-            this.Tab0.Controls.Add(this.version);
-            this.Tab0.Controls.Add(this.poisonLabel23);
-            this.Tab0.Controls.Add(this.twitchPusSubStatus);
-            this.Tab0.Controls.Add(this.twitchChatStatus);
-            this.Tab0.Controls.Add(this.poisonLabel8);
-            this.Tab0.Controls.Add(this.poisonLabel9);
-            this.Tab0.Controls.Add(this.poisonLabel1);
-            this.Tab0.HorizontalScrollbar = true;
-            this.Tab0.HorizontalScrollbarBarColor = true;
-            this.Tab0.HorizontalScrollbarHighlightOnWheel = false;
-            this.Tab0.HorizontalScrollbarSize = 10;
-            this.Tab0.Location = new System.Drawing.Point(4, 38);
-            this.Tab0.Name = "Tab0";
-            this.Tab0.Padding = new System.Windows.Forms.Padding(25);
-            this.Tab0.Size = new System.Drawing.Size(712, 340);
-            this.Tab0.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
-            this.Tab0.TabIndex = 0;
-            this.Tab0.Text = "Main Controls";
-            this.Tab0.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.Tab0.VerticalScrollbar = true;
-            this.Tab0.VerticalScrollbarBarColor = true;
-            this.Tab0.VerticalScrollbarHighlightOnWheel = false;
-            this.Tab0.VerticalScrollbarSize = 10;
+            this.MainTab.AutoScroll = true;
+            this.MainTab.Controls.Add(this.twitchLogin);
+            this.MainTab.Controls.Add(this.pubsubSpinner);
+            this.MainTab.Controls.Add(this.chatSpinner);
+            this.MainTab.Controls.Add(this.version);
+            this.MainTab.Controls.Add(this.poisonLabel23);
+            this.MainTab.Controls.Add(this.twitchPusSubStatus);
+            this.MainTab.Controls.Add(this.twitchChatStatus);
+            this.MainTab.Controls.Add(this.poisonLabel8);
+            this.MainTab.Controls.Add(this.poisonLabel9);
+            this.MainTab.Controls.Add(this.poisonLabel1);
+            this.MainTab.HorizontalScrollbar = true;
+            this.MainTab.HorizontalScrollbarBarColor = true;
+            this.MainTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.MainTab.HorizontalScrollbarSize = 10;
+            this.MainTab.Location = new System.Drawing.Point(4, 38);
+            this.MainTab.Name = "MainTab";
+            this.MainTab.Padding = new System.Windows.Forms.Padding(25);
+            this.MainTab.Size = new System.Drawing.Size(857, 261);
+            this.MainTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.MainTab.TabIndex = 0;
+            this.MainTab.Text = "Main Controls";
+            this.MainTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.MainTab.VerticalScrollbar = true;
+            this.MainTab.VerticalScrollbarBarColor = true;
+            this.MainTab.VerticalScrollbarHighlightOnWheel = false;
+            this.MainTab.VerticalScrollbarSize = 10;
             // 
             // twitchLogin
             // 
-            this.twitchLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.twitchLogin.AutoSize = true;
-            this.twitchLogin.Location = new System.Drawing.Point(160, 56);
+            this.twitchLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.twitchLogin.Location = new System.Drawing.Point(0, 3);
             this.twitchLogin.Name = "twitchLogin";
-            this.twitchLogin.Size = new System.Drawing.Size(397, 180);
+            this.twitchLogin.Size = new System.Drawing.Size(854, 255);
             this.twitchLogin.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
-            this.twitchLogin.TabIndex = 1;
+            this.twitchLogin.TabIndex = 16;
             this.twitchLogin.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.twitchLogin.UseSelectable = true;
-            this.twitchLogin.Visible = false;
             // 
             // pubsubSpinner
             // 
@@ -248,25 +265,25 @@
             this.poisonLabel1.Text = "Connection Status";
             this.poisonLabel1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
-            // poisonTabPage2
+            // CommandsTab
             // 
-            this.poisonTabPage2.Controls.Add(this.addNewCommand);
-            this.poisonTabPage2.Controls.Add(this.commands);
-            this.poisonTabPage2.HorizontalScrollbarBarColor = true;
-            this.poisonTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage2.HorizontalScrollbarSize = 10;
-            this.poisonTabPage2.Location = new System.Drawing.Point(4, 35);
-            this.poisonTabPage2.Name = "poisonTabPage2";
-            this.poisonTabPage2.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage2.Size = new System.Drawing.Size(712, 343);
-            this.poisonTabPage2.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
-            this.poisonTabPage2.TabIndex = 1;
-            this.poisonTabPage2.Text = "Commands";
-            this.poisonTabPage2.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.poisonTabPage2.VerticalScrollbarBarColor = true;
-            this.poisonTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage2.VerticalScrollbarSize = 10;
-            this.poisonTabPage2.Visible = false;
+            this.CommandsTab.Controls.Add(this.addNewCommand);
+            this.CommandsTab.Controls.Add(this.commands);
+            this.CommandsTab.HorizontalScrollbarBarColor = true;
+            this.CommandsTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.CommandsTab.HorizontalScrollbarSize = 10;
+            this.CommandsTab.Location = new System.Drawing.Point(4, 38);
+            this.CommandsTab.Name = "CommandsTab";
+            this.CommandsTab.Padding = new System.Windows.Forms.Padding(25);
+            this.CommandsTab.Size = new System.Drawing.Size(857, 261);
+            this.CommandsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.CommandsTab.TabIndex = 1;
+            this.CommandsTab.Text = "Commands";
+            this.CommandsTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.CommandsTab.VerticalScrollbarBarColor = true;
+            this.CommandsTab.VerticalScrollbarHighlightOnWheel = false;
+            this.CommandsTab.VerticalScrollbarSize = 10;
+            this.CommandsTab.Visible = false;
             // 
             // addNewCommand
             // 
@@ -285,33 +302,47 @@
             this.poisonStyleExtender.SetApplyPoisonTheme(this.commands, true);
             this.commands.AutoScroll = true;
             this.commands.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.commands.Controls.Add(this.poisonLabel3);
             this.commands.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.commands.Location = new System.Drawing.Point(3, 25);
+            this.commands.Location = new System.Drawing.Point(3, 3);
             this.commands.Name = "commands";
-            this.commands.Size = new System.Drawing.Size(706, 210);
+            this.commands.Size = new System.Drawing.Size(855, 232);
             this.commands.TabIndex = 2;
             // 
-            // poisonTabPage3
+            // poisonLabel3
             // 
-            this.poisonTabPage3.Controls.Add(this.addReward);
-            this.poisonTabPage3.Controls.Add(this.rewards);
-            this.poisonTabPage3.HorizontalScrollbar = true;
-            this.poisonTabPage3.HorizontalScrollbarBarColor = true;
-            this.poisonTabPage3.HorizontalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage3.HorizontalScrollbarSize = 10;
-            this.poisonTabPage3.Location = new System.Drawing.Point(4, 35);
-            this.poisonTabPage3.Name = "poisonTabPage3";
-            this.poisonTabPage3.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage3.Size = new System.Drawing.Size(712, 343);
-            this.poisonTabPage3.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
-            this.poisonTabPage3.TabIndex = 2;
-            this.poisonTabPage3.Text = "Rewards";
-            this.poisonTabPage3.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.poisonTabPage3.VerticalScrollbar = true;
-            this.poisonTabPage3.VerticalScrollbarBarColor = true;
-            this.poisonTabPage3.VerticalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage3.VerticalScrollbarSize = 10;
-            this.poisonTabPage3.Visible = false;
+            this.poisonLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.poisonLabel3.AutoSize = true;
+            this.poisonLabel3.Location = new System.Drawing.Point(3, 0);
+            this.poisonLabel3.Name = "poisonLabel3";
+            this.poisonLabel3.Size = new System.Drawing.Size(86, 19);
+            this.poisonLabel3.TabIndex = 0;
+            this.poisonLabel3.Text = "poisonLabel3";
+            this.poisonLabel3.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            // 
+            // RewardsTab
+            // 
+            this.RewardsTab.Controls.Add(this.addReward);
+            this.RewardsTab.Controls.Add(this.rewards);
+            this.RewardsTab.HorizontalScrollbar = true;
+            this.RewardsTab.HorizontalScrollbarBarColor = true;
+            this.RewardsTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.RewardsTab.HorizontalScrollbarSize = 10;
+            this.RewardsTab.Location = new System.Drawing.Point(4, 35);
+            this.RewardsTab.Name = "RewardsTab";
+            this.RewardsTab.Padding = new System.Windows.Forms.Padding(25);
+            this.RewardsTab.Size = new System.Drawing.Size(857, 264);
+            this.RewardsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.RewardsTab.TabIndex = 2;
+            this.RewardsTab.Text = "Rewards";
+            this.RewardsTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.RewardsTab.VerticalScrollbar = true;
+            this.RewardsTab.VerticalScrollbarBarColor = true;
+            this.RewardsTab.VerticalScrollbarHighlightOnWheel = false;
+            this.RewardsTab.VerticalScrollbarSize = 10;
+            this.RewardsTab.Visible = false;
             // 
             // addReward
             // 
@@ -331,52 +362,217 @@
             this.rewards.AutoScroll = true;
             this.rewards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             this.rewards.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.rewards.Location = new System.Drawing.Point(3, 25);
+            this.rewards.Location = new System.Drawing.Point(3, 3);
             this.rewards.Name = "rewards";
-            this.rewards.Size = new System.Drawing.Size(706, 210);
+            this.rewards.Size = new System.Drawing.Size(854, 232);
             this.rewards.TabIndex = 4;
             // 
-            // poisonTabPage5
+            // SubscriptionsTab
             // 
-            this.poisonTabPage5.BackColor = System.Drawing.Color.Transparent;
-            this.poisonTabPage5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.poisonTabPage5.HorizontalScrollbarBarColor = true;
-            this.poisonTabPage5.HorizontalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage5.HorizontalScrollbarSize = 10;
-            this.poisonTabPage5.Location = new System.Drawing.Point(4, 35);
-            this.poisonTabPage5.Name = "poisonTabPage5";
-            this.poisonTabPage5.Size = new System.Drawing.Size(712, 343);
-            this.poisonTabPage5.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
-            this.poisonTabPage5.TabIndex = 3;
-            this.poisonTabPage5.Text = "Subscriptions";
-            this.poisonTabPage5.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.poisonTabPage5.UseCustomBackColor = true;
-            this.poisonTabPage5.UseCustomForeColor = true;
-            this.poisonTabPage5.VerticalScrollbarBarColor = true;
-            this.poisonTabPage5.VerticalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage5.VerticalScrollbarSize = 10;
+            this.SubscriptionsTab.BackColor = System.Drawing.Color.Transparent;
+            this.SubscriptionsTab.Controls.Add(this.addSub);
+            this.SubscriptionsTab.Controls.Add(this.subscriptions);
+            this.SubscriptionsTab.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.SubscriptionsTab.HorizontalScrollbarBarColor = true;
+            this.SubscriptionsTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.SubscriptionsTab.HorizontalScrollbarSize = 10;
+            this.SubscriptionsTab.Location = new System.Drawing.Point(4, 35);
+            this.SubscriptionsTab.Name = "SubscriptionsTab";
+            this.SubscriptionsTab.Size = new System.Drawing.Size(857, 264);
+            this.SubscriptionsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Teal;
+            this.SubscriptionsTab.TabIndex = 3;
+            this.SubscriptionsTab.Text = "Subscriptions";
+            this.SubscriptionsTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.SubscriptionsTab.UseCustomBackColor = true;
+            this.SubscriptionsTab.UseCustomForeColor = true;
+            this.SubscriptionsTab.VerticalScrollbarBarColor = true;
+            this.SubscriptionsTab.VerticalScrollbarHighlightOnWheel = false;
+            this.SubscriptionsTab.VerticalScrollbarSize = 10;
             // 
-            // poisonTabPage4
+            // addSub
             // 
-            this.poisonTabPage4.Controls.Add(this.debugSwitch);
-            this.poisonTabPage4.Controls.Add(this.poisonLabel2);
-            this.poisonTabPage4.Controls.Add(this.poisonLabel15);
-            this.poisonTabPage4.Controls.Add(this.twitchOAuth);
-            this.poisonTabPage4.HorizontalScrollbarBarColor = true;
-            this.poisonTabPage4.HorizontalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage4.HorizontalScrollbarSize = 10;
-            this.poisonTabPage4.Location = new System.Drawing.Point(4, 35);
-            this.poisonTabPage4.Name = "poisonTabPage4";
-            this.poisonTabPage4.Padding = new System.Windows.Forms.Padding(25);
-            this.poisonTabPage4.Size = new System.Drawing.Size(712, 343);
-            this.poisonTabPage4.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
-            this.poisonTabPage4.TabIndex = 3;
-            this.poisonTabPage4.Text = "Settings";
-            this.poisonTabPage4.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.poisonTabPage4.VerticalScrollbarBarColor = true;
-            this.poisonTabPage4.VerticalScrollbarHighlightOnWheel = false;
-            this.poisonTabPage4.VerticalScrollbarSize = 10;
-            this.poisonTabPage4.Visible = false;
+            this.addSub.Location = new System.Drawing.Point(3, 237);
+            this.addSub.Name = "addSub";
+            this.addSub.Size = new System.Drawing.Size(144, 23);
+            this.addSub.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.addSub.TabIndex = 7;
+            this.addSub.Text = "✙ Add New Subscription";
+            this.addSub.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.addSub.UseSelectable = true;
+            this.addSub.Click += new System.EventHandler(this.addSub_Click);
+            // 
+            // subscriptions
+            // 
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.subscriptions, true);
+            this.subscriptions.AutoScroll = true;
+            this.subscriptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.subscriptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.subscriptions.Location = new System.Drawing.Point(3, 3);
+            this.subscriptions.Name = "subscriptions";
+            this.subscriptions.Size = new System.Drawing.Size(854, 232);
+            this.subscriptions.TabIndex = 6;
+            // 
+            // BitsTab
+            // 
+            this.BitsTab.Controls.Add(this.addBits);
+            this.BitsTab.Controls.Add(this.bits);
+            this.BitsTab.HorizontalScrollbarBarColor = true;
+            this.BitsTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.BitsTab.HorizontalScrollbarSize = 10;
+            this.BitsTab.Location = new System.Drawing.Point(4, 35);
+            this.BitsTab.Name = "BitsTab";
+            this.BitsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.BitsTab.Size = new System.Drawing.Size(857, 264);
+            this.BitsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.BitsTab.TabIndex = 4;
+            this.BitsTab.Text = "Bits";
+            this.BitsTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.BitsTab.UseVisualStyleBackColor = true;
+            this.BitsTab.VerticalScrollbarBarColor = true;
+            this.BitsTab.VerticalScrollbarHighlightOnWheel = false;
+            this.BitsTab.VerticalScrollbarSize = 10;
+            // 
+            // addBits
+            // 
+            this.addBits.Location = new System.Drawing.Point(3, 237);
+            this.addBits.Name = "addBits";
+            this.addBits.Size = new System.Drawing.Size(98, 23);
+            this.addBits.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.addBits.TabIndex = 9;
+            this.addBits.Text = "✙ Add New Bits";
+            this.addBits.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.addBits.UseSelectable = true;
+            this.addBits.Click += new System.EventHandler(this.addBits_Click);
+            // 
+            // bits
+            // 
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.bits, true);
+            this.bits.AutoScroll = true;
+            this.bits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.bits.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.bits.Location = new System.Drawing.Point(3, 6);
+            this.bits.Name = "bits";
+            this.bits.Size = new System.Drawing.Size(854, 229);
+            this.bits.TabIndex = 8;
+            // 
+            // HostTab
+            // 
+            this.HostTab.Controls.Add(this.addhost);
+            this.HostTab.Controls.Add(this.hosts);
+            this.HostTab.HorizontalScrollbarBarColor = true;
+            this.HostTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.HostTab.HorizontalScrollbarSize = 10;
+            this.HostTab.Location = new System.Drawing.Point(4, 35);
+            this.HostTab.Name = "HostTab";
+            this.HostTab.Padding = new System.Windows.Forms.Padding(3);
+            this.HostTab.Size = new System.Drawing.Size(857, 264);
+            this.HostTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.HostTab.TabIndex = 6;
+            this.HostTab.Text = "Host";
+            this.HostTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.HostTab.UseVisualStyleBackColor = true;
+            this.HostTab.VerticalScrollbarBarColor = true;
+            this.HostTab.VerticalScrollbarHighlightOnWheel = false;
+            this.HostTab.VerticalScrollbarSize = 10;
+            // 
+            // addhost
+            // 
+            this.addhost.Location = new System.Drawing.Point(3, 237);
+            this.addhost.Name = "addhost";
+            this.addhost.Size = new System.Drawing.Size(104, 23);
+            this.addhost.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.addhost.TabIndex = 9;
+            this.addhost.Text = "✙ Add New Host";
+            this.addhost.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.addhost.UseSelectable = true;
+            this.addhost.Click += new System.EventHandler(this.addhost_Click);
+            // 
+            // hosts
+            // 
+            this.poisonStyleExtender.SetApplyPoisonTheme(this.hosts, true);
+            this.hosts.AutoScroll = true;
+            this.hosts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.hosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.hosts.Location = new System.Drawing.Point(3, 6);
+            this.hosts.Name = "hosts";
+            this.hosts.Size = new System.Drawing.Size(854, 229);
+            this.hosts.TabIndex = 8;
+            // 
+            // followTab
+            // 
+            this.followTab.HorizontalScrollbarBarColor = true;
+            this.followTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.followTab.HorizontalScrollbarSize = 10;
+            this.followTab.Location = new System.Drawing.Point(4, 35);
+            this.followTab.Name = "followTab";
+            this.followTab.Padding = new System.Windows.Forms.Padding(3);
+            this.followTab.Size = new System.Drawing.Size(857, 264);
+            this.followTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.followTab.TabIndex = 5;
+            this.followTab.Text = "Follow";
+            this.followTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.followTab.UseVisualStyleBackColor = true;
+            this.followTab.VerticalScrollbarBarColor = true;
+            this.followTab.VerticalScrollbarHighlightOnWheel = false;
+            this.followTab.VerticalScrollbarSize = 10;
+            // 
+            // BanTab
+            // 
+            this.BanTab.HorizontalScrollbarBarColor = true;
+            this.BanTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.BanTab.HorizontalScrollbarSize = 10;
+            this.BanTab.Location = new System.Drawing.Point(4, 35);
+            this.BanTab.Name = "BanTab";
+            this.BanTab.Padding = new System.Windows.Forms.Padding(3);
+            this.BanTab.Size = new System.Drawing.Size(857, 264);
+            this.BanTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.BanTab.TabIndex = 7;
+            this.BanTab.Text = "Ban";
+            this.BanTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.BanTab.UseVisualStyleBackColor = true;
+            this.BanTab.VerticalScrollbarBarColor = true;
+            this.BanTab.VerticalScrollbarHighlightOnWheel = false;
+            this.BanTab.VerticalScrollbarSize = 10;
+            // 
+            // TimedoutTab
+            // 
+            this.TimedoutTab.HorizontalScrollbarBarColor = true;
+            this.TimedoutTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.TimedoutTab.HorizontalScrollbarSize = 10;
+            this.TimedoutTab.Location = new System.Drawing.Point(4, 35);
+            this.TimedoutTab.Name = "TimedoutTab";
+            this.TimedoutTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TimedoutTab.Size = new System.Drawing.Size(857, 264);
+            this.TimedoutTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.TimedoutTab.TabIndex = 8;
+            this.TimedoutTab.Text = "Timedout";
+            this.TimedoutTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.TimedoutTab.UseVisualStyleBackColor = true;
+            this.TimedoutTab.VerticalScrollbarBarColor = true;
+            this.TimedoutTab.VerticalScrollbarHighlightOnWheel = false;
+            this.TimedoutTab.VerticalScrollbarSize = 10;
+            // 
+            // SettingsTab
+            // 
+            this.SettingsTab.Controls.Add(this.debugSwitch);
+            this.SettingsTab.Controls.Add(this.poisonLabel2);
+            this.SettingsTab.Controls.Add(this.poisonLabel15);
+            this.SettingsTab.Controls.Add(this.twitchOAuth);
+            this.SettingsTab.HorizontalScrollbarBarColor = true;
+            this.SettingsTab.HorizontalScrollbarHighlightOnWheel = false;
+            this.SettingsTab.HorizontalScrollbarSize = 10;
+            this.SettingsTab.Location = new System.Drawing.Point(4, 35);
+            this.SettingsTab.Name = "SettingsTab";
+            this.SettingsTab.Padding = new System.Windows.Forms.Padding(25);
+            this.SettingsTab.Size = new System.Drawing.Size(857, 264);
+            this.SettingsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+            this.SettingsTab.TabIndex = 3;
+            this.SettingsTab.Text = "Settings";
+            this.SettingsTab.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.SettingsTab.VerticalScrollbarBarColor = true;
+            this.SettingsTab.VerticalScrollbarHighlightOnWheel = false;
+            this.SettingsTab.VerticalScrollbarSize = 10;
+            this.SettingsTab.Visible = false;
             // 
             // debugSwitch
             // 
@@ -519,17 +715,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.poisonTabControl1);
             this.Name = "MainPanel";
-            this.Size = new System.Drawing.Size(720, 382);
+            this.Size = new System.Drawing.Size(868, 309);
             this.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.Load += new System.EventHandler(this.MainPanel_Load);
             this.poisonTabControl1.ResumeLayout(false);
-            this.Tab0.ResumeLayout(false);
-            this.Tab0.PerformLayout();
-            this.poisonTabPage2.ResumeLayout(false);
-            this.poisonTabPage3.ResumeLayout(false);
-            this.poisonTabPage4.ResumeLayout(false);
-            this.poisonTabPage4.PerformLayout();
+            this.MainTab.ResumeLayout(false);
+            this.MainTab.PerformLayout();
+            this.CommandsTab.ResumeLayout(false);
+            this.commands.ResumeLayout(false);
+            this.commands.PerformLayout();
+            this.RewardsTab.ResumeLayout(false);
+            this.SubscriptionsTab.ResumeLayout(false);
+            this.BitsTab.ResumeLayout(false);
+            this.HostTab.ResumeLayout(false);
+            this.SettingsTab.ResumeLayout(false);
+            this.SettingsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.poisonStyleManager)).EndInit();
             this.ResumeLayout(false);
 
@@ -539,12 +740,12 @@
 
         private PoisonTabControl poisonTabControl1;
         private PoisonStyleManager poisonStyleManager;
-        private PoisonTabPage Tab0;
+        private PoisonTabPage MainTab;
         private PoisonToolTip poisonToolTip;
         private PoisonLabel poisonLabel1;
-        private PoisonTabPage poisonTabPage3;
-        private PoisonTabPage poisonTabPage4;
-        private PoisonTabPage poisonTabPage5;
+        private PoisonTabPage RewardsTab;
+        private PoisonTabPage SettingsTab;
+        private PoisonTabPage SubscriptionsTab;
         private PoisonLabel poisonLabel8;
         private PoisonTextBox twitchOAuth;
         private PoisonLabel poisonLabel15;
@@ -556,7 +757,7 @@
         private MaterialCheckBox materialCheckBox2;
         private PoisonLabel poisonLabel23;
         private PoisonLabel version;
-        private PoisonTabPage poisonTabPage2;
+        private PoisonTabPage CommandsTab;
         private PoisonProgressSpinner chatSpinner;
         private PoisonProgressSpinner pubsubSpinner;
         private PoisonLabel poisonLabel2;
@@ -565,8 +766,20 @@
         private PoisonButton addNewCommand;
         private PoisonButton addReward;
         private FlowLayoutPanel rewards;
-        private TwitchLogin twitchLogin;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private PoisonButton addSub;
+        private FlowLayoutPanel subscriptions;
+        private PoisonTabPage BitsTab;
+        private PoisonTabPage followTab;
+        private PoisonTabPage HostTab;
+        private PoisonTabPage TimedoutTab;
+        private PoisonButton addBits;
+        private FlowLayoutPanel bits;
+        private PoisonButton addhost;
+        private FlowLayoutPanel hosts;
+        private TwitchLogin twitchLogin;
+        private PoisonTabPage BanTab;
+        private PoisonLabel poisonLabel3;
     }
 }

@@ -434,6 +434,7 @@
             // 
             // oscActions
             // 
+            this.oscActions.AutoScroll = true;
             this.oscActions.BackColor = System.Drawing.Color.Transparent;
             this.oscActions.Location = new System.Drawing.Point(276, 13);
             this.oscActions.Name = "oscActions";

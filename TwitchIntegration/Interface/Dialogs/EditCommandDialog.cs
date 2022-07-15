@@ -1,9 +1,11 @@
-﻿using TwitchIntegration.Models.Twitch;
+﻿using TwitchIntegration.Interfaces;
+using TwitchIntegration.Models.Twitch;
 
 namespace TwitchIntegration.Interface.Dialogs
 {
-    public partial class EditCommandDialog : PoisonUserControl
+    public partial class EditCommandDialog : PoisonUserControl, IActionRemovable
     {
+        private bool _isUpdating;
         private CommandItem _mainPanel;
         private PoisonTaskWindow _currentAddOscWindow;
 
@@ -34,11 +36,15 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnGlobalChanged(object sender, EventArgs e)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].GlobalDelay = new TimeSpan((int)globalH.Value, (int)globalM.Value, (int)globalS.Value);
         }
 
         private void OnUserChanged(object sender, EventArgs e)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].DelayPerUser = new TimeSpan((int)userH.Value, (int)userM.Value, (int)userS.Value);
         }
 
@@ -46,6 +52,7 @@ namespace TwitchIntegration.Interface.Dialogs
 
         public void Init()
         {
+            _isUpdating = true;
             NormalUser = MainClass.Instance.Config.Events.OnCommand[CommandName].NormalAccess;
             Subscriber = MainClass.Instance.Config.Events.OnCommand[CommandName].SubAccess;
             SubscriberMonths = MainClass.Instance.Config.Events.OnCommand[CommandName].SubMonths;
@@ -63,6 +70,7 @@ namespace TwitchIntegration.Interface.Dialogs
             userS.Value = MainClass.Instance.Config.Events.OnCommand[CommandName].DelayPerUser.Seconds;
 
             LoadActions();
+            _isUpdating = false;
         }
 
         public void LoadActions()
@@ -94,14 +102,16 @@ namespace TwitchIntegration.Interface.Dialogs
                 }
             }
 
-            var item = new OscItem();
+            var item = new OscItem(this);
             item.actionName.LostFocus += (o, e) =>
             {
                 MainClass.Instance.Config.Events.OnCommand[CommandName].OscOutActions[item.ID].ActionName = item.actionName.Text;
+                MainClass.Instance.SaveConfig();
             };
             item.executionDuration.TextChanged += (o, e) =>
             {
                 MainClass.Instance.Config.Events.OnCommand[CommandName].OscOutActions[item.ID].ExecutionDuration = (int)item.executionDuration.Value;
+                MainClass.Instance.SaveConfig();
             };
             item.oscValue.TextChanged += (o, e) =>
             {
@@ -132,7 +142,7 @@ namespace TwitchIntegration.Interface.Dialogs
 
                 MainClass.Instance.Config.Events.OnCommand[CommandName].OscOutActions.RemoveAt(item.ID);
                 MainClass.Instance.SaveConfig();
-                RemoveAction(this);
+                item.ParentPanel.RemoveAction(item);
             };
 
             item.ID = id;
@@ -164,6 +174,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnNormalUserChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].NormalAccess = normalUser.Switched;
             MainClass.Instance.SaveConfig();
         }
@@ -185,6 +197,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnSubscriberChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].SubAccess = subscriber.Switched;
             MainClass.Instance.SaveConfig();
         }
@@ -206,6 +220,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnMinimumMonthsChanged(object sender, EventArgs e)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].SubMonths = (int)minimumMonths.Value;
             MainClass.Instance.SaveConfig();
         }
@@ -227,6 +243,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnModeratorChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].ModAccess = moderator.Switched;
             MainClass.Instance.SaveConfig();
         }
@@ -249,6 +267,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnStreamerChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].BroadcasterAccess = moderator.Switched;
             MainClass.Instance.SaveConfig();
         }
@@ -270,6 +290,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnVipChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].VipAccess = vip.Switched;
             MainClass.Instance.SaveConfig();
         }
@@ -291,6 +313,8 @@ namespace TwitchIntegration.Interface.Dialogs
 
         private void OnRandomChanged(object sender)
         {
+            if (_isUpdating) return;
+
             MainClass.Instance.Config.Events.OnCommand[CommandName].ExecuteRandomAction = randomAction.Switched;
             MainClass.Instance.SaveConfig();
         }

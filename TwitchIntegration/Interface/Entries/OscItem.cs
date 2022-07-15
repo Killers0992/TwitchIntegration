@@ -1,10 +1,14 @@
-﻿namespace TwitchIntegration.Interface
+﻿using TwitchIntegration.Interfaces;
+
+namespace TwitchIntegration.Interface
 {
     public partial class OscItem : PoisonUserControl
     {
+        public IActionRemovable ParentPanel;
 
-        public OscItem()
+        public OscItem(IActionRemovable parentPanel)
         {
+            ParentPanel = parentPanel;
             InitializeComponent();
         }
 
