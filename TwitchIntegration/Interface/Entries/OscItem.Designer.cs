@@ -201,6 +201,11 @@
             this.executionDuration.BackColor = System.Drawing.SystemColors.MenuText;
             this.executionDuration.DecimalPlaces = 2;
             this.executionDuration.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.executionDuration.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            131072});
             this.executionDuration.Location = new System.Drawing.Point(115, 86);
             this.executionDuration.Maximum = new decimal(new int[] {
             10000,
@@ -210,7 +215,6 @@
             this.executionDuration.Name = "executionDuration";
             this.executionDuration.Size = new System.Drawing.Size(91, 23);
             this.executionDuration.TabIndex = 9;
-            this.executionDuration.ThousandsSeparator = true;
             // 
             // OscItem
             // 

@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.7",
+  "Version": "1.0.8",
   "Changelogs": [
-    "- Update to new version of panel."
+    "- Fix increment to 0.10 for execution time."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"
