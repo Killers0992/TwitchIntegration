@@ -13,7 +13,7 @@ namespace TwitchIntegration
 
         public override string Name { get; } = "Twitch Integration";
         public override string Author { get; } = "Killers0992";
-        public override Version Version { get; } = new Version(1, 0, 6);
+        public override Version Version { get; } = new Version(1, 0, 7);
         public override PoisonUserControl MainPanel { get; }
 
         public static MainClass Instance;

@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.6",
+  "Version": "1.0.7",
   "Changelogs": [
-    "- Added more tabs."
+    "- Update to new version of panel."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

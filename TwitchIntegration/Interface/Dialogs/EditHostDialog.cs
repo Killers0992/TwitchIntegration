@@ -61,7 +61,7 @@ namespace TwitchIntegration.Interface.Dialogs
             oscActions.Controls.Remove(control);
         }
 
-        public void AddNewAction(int id, string actionName, int duration, string value, string defaultValue, bool scroll = false)
+        public void AddNewAction(int id, string actionName, double duration, string value, string defaultValue, bool scroll = false)
         {
             if (id == -1)
             {
@@ -84,7 +84,7 @@ namespace TwitchIntegration.Interface.Dialogs
                 MainClass.Instance.Config.Events.OnBeingHosted[ID].OscOutActions[item.ID].ActionName = item.actionName.Text;
                 MainClass.Instance.SaveConfig();
             };
-            item.executionDuration.TextChanged += (o, e) =>
+            item.executionDuration.ValueChanged += (o, e) =>
             {
                 MainClass.Instance.Config.Events.OnBeingHosted[ID].OscOutActions[item.ID].ExecutionDuration = (int)item.executionDuration.Value;
                 MainClass.Instance.SaveConfig();
@@ -122,7 +122,7 @@ namespace TwitchIntegration.Interface.Dialogs
             };
 
             item.ActionName = actionName;
-            item.ExecutionDuration = duration;
+            item.ExecutionDuration = Convert.ToDecimal(duration);
             item.Value = value;
             item.DefaultValue = defaultValue;
             oscActions.Controls.Add(item);
@@ -237,7 +237,7 @@ namespace TwitchIntegration.Interface.Dialogs
             var control = new CreateOscActionDialog();
             control.confirmButton.Click += (o, e) =>
             {
-                AddNewAction(-1, control.actionName.Text, (int)control.executionDuration.Value, control.value.Text, control.defaultValue.Text, true);
+                AddNewAction(-1, control.actionName.Text, control.executionDuration.Value, control.value.Text, control.defaultValue.Text, true);
                 control.ParentForm.Close();
             };
 

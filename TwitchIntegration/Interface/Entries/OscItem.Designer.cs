@@ -31,12 +31,13 @@
             this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
             this.actionName = new ReaLTaiizor.Controls.PoisonTextBox();
             this.poisonLabel2 = new ReaLTaiizor.Controls.PoisonLabel();
-            this.executionDuration = new ReaLTaiizor.Controls.ForeverNumeric();
             this.poisonLabel3 = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonLabel4 = new ReaLTaiizor.Controls.PoisonLabel();
             this.oscValue = new ReaLTaiizor.Controls.PoisonTextBox();
             this.defaultValue = new ReaLTaiizor.Controls.PoisonTextBox();
             this.removeAction = new ReaLTaiizor.Controls.PoisonButton();
+            this.executionDuration = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.executionDuration)).BeginInit();
             this.SuspendLayout();
             // 
             // poisonLabel1
@@ -67,7 +68,7 @@
             this.actionName.Lines = new string[0];
             this.actionName.Location = new System.Drawing.Point(3, 40);
             this.actionName.MaxLength = 32767;
-            this.actionName.Name = "ActionName";
+            this.actionName.Name = "actionName";
             this.actionName.PasswordChar = '\0';
             this.actionName.PromptText = "VRC Paramater name...";
             this.actionName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -95,23 +96,6 @@
             this.poisonLabel2.Text = "Execution duration                         seconds.";
             this.poisonLabel2.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
-            // executionDuration
-            // 
-            this.executionDuration.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(47)))), ((int)(((byte)(49)))));
-            this.executionDuration.ButtonColorA = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
-            this.executionDuration.ButtonColorB = System.Drawing.Color.White;
-            this.executionDuration.ButtonColorC = System.Drawing.Color.White;
-            this.executionDuration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.executionDuration.ForeColor = System.Drawing.Color.Silver;
-            this.executionDuration.Location = new System.Drawing.Point(129, 77);
-            this.executionDuration.Maximum = ((long)(100));
-            this.executionDuration.Minimum = ((long)(0));
-            this.executionDuration.Name = "ExecutionDuration";
-            this.executionDuration.Size = new System.Drawing.Size(68, 30);
-            this.executionDuration.TabIndex = 3;
-            this.executionDuration.Text = "foreverNumeric1";
-            this.executionDuration.Value = ((long)(0));
-            // 
             // poisonLabel3
             // 
             this.poisonLabel3.AutoSize = true;
@@ -134,7 +118,7 @@
             this.poisonLabel4.Text = "Default value";
             this.poisonLabel4.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             // 
-            // OscValue
+            // oscValue
             // 
             // 
             // 
@@ -151,7 +135,7 @@
             this.oscValue.Lines = new string[0];
             this.oscValue.Location = new System.Drawing.Point(124, 113);
             this.oscValue.MaxLength = 32767;
-            this.oscValue.Name = "OscValue";
+            this.oscValue.Name = "oscValue";
             this.oscValue.PasswordChar = '\0';
             this.oscValue.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.oscValue.SelectedText = "";
@@ -183,7 +167,7 @@
             this.defaultValue.Lines = new string[0];
             this.defaultValue.Location = new System.Drawing.Point(124, 143);
             this.defaultValue.MaxLength = 32767;
-            this.defaultValue.Name = "DefaultValue";
+            this.defaultValue.Name = "defaultValue";
             this.defaultValue.PasswordChar = '\0';
             this.defaultValue.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.defaultValue.SelectedText = "";
@@ -203,7 +187,7 @@
             this.removeAction.FontSize = ReaLTaiizor.Extension.Poison.PoisonButtonSize.Tall;
             this.removeAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.removeAction.Location = new System.Drawing.Point(226, 0);
-            this.removeAction.Name = "RemoveAction";
+            this.removeAction.Name = "removeAction";
             this.removeAction.Size = new System.Drawing.Size(35, 35);
             this.removeAction.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.removeAction.TabIndex = 8;
@@ -212,16 +196,32 @@
             this.removeAction.UseCustomForeColor = true;
             this.removeAction.UseSelectable = true;
             // 
+            // executionDuration
+            // 
+            this.executionDuration.BackColor = System.Drawing.SystemColors.MenuText;
+            this.executionDuration.DecimalPlaces = 2;
+            this.executionDuration.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.executionDuration.Location = new System.Drawing.Point(115, 86);
+            this.executionDuration.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.executionDuration.Name = "executionDuration";
+            this.executionDuration.Size = new System.Drawing.Size(91, 23);
+            this.executionDuration.TabIndex = 9;
+            this.executionDuration.ThousandsSeparator = true;
+            // 
             // OscItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.executionDuration);
             this.Controls.Add(this.removeAction);
             this.Controls.Add(this.defaultValue);
             this.Controls.Add(this.oscValue);
             this.Controls.Add(this.poisonLabel4);
             this.Controls.Add(this.poisonLabel3);
-            this.Controls.Add(this.executionDuration);
             this.Controls.Add(this.poisonLabel2);
             this.Controls.Add(this.actionName);
             this.Controls.Add(this.poisonLabel1);
@@ -229,6 +229,7 @@
             this.Size = new System.Drawing.Size(263, 180);
             this.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            ((System.ComponentModel.ISupportInitialize)(this.executionDuration)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,9 +242,9 @@
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel3;
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel4;
         public PoisonTextBox actionName;
-        public ForeverNumeric executionDuration;
         public PoisonTextBox oscValue;
         public PoisonTextBox defaultValue;
         public PoisonButton removeAction;
+        public NumericUpDown executionDuration;
     }
 }

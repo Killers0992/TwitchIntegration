@@ -30,9 +30,9 @@ namespace TwitchIntegration.Interface
             }
         }
 
-        int _executionDuration;
+        decimal _executionDuration;
         [Category("Osc Item")]
-        public int ExecutionDuration
+        public decimal ExecutionDuration
         {
             get
             {

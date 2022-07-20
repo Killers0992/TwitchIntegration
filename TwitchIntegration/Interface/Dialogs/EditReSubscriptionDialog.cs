@@ -71,7 +71,7 @@ namespace TwitchIntegration.Interface.Dialogs
             oscActions.Controls.Remove(control);
         }
 
-        public void AddNewAction(int id, string actionName, int duration, string value, string defaultValue, bool scroll = false)
+        public void AddNewAction(int id, string actionName, double duration, string value, string defaultValue, bool scroll = false)
         {
             if (id == -1)
             {
@@ -132,7 +132,7 @@ namespace TwitchIntegration.Interface.Dialogs
             };
 
             item.ActionName = actionName;
-            item.ExecutionDuration = duration;
+            item.ExecutionDuration = Convert.ToDecimal(duration);
             item.Value = value;
             item.DefaultValue = defaultValue;
             oscActions.Controls.Add(item);
