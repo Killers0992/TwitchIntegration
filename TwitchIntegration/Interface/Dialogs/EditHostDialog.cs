@@ -86,7 +86,7 @@ namespace TwitchIntegration.Interface.Dialogs
             };
             item.executionDuration.ValueChanged += (o, e) =>
             {
-                MainClass.Instance.Config.Events.OnBeingHosted[ID].OscOutActions[item.ID].ExecutionDuration = (int)item.executionDuration.Value;
+                MainClass.Instance.Config.Events.OnBeingHosted[ID].OscOutActions[item.ID].ExecutionDuration = Convert.ToDouble(item.executionDuration.Value); ;
                 MainClass.Instance.SaveConfig();
             };
             item.oscValue.TextChanged += (o, e) =>

@@ -1,7 +1,7 @@
 {
-  "Version": "1.0.8",
+  "Version": "1.0.9",
   "Changelogs": [
-    "- Fix increment to 0.10 for execution time."
+    "- Fix increment to 0.10 for execution time. (2)"
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"
