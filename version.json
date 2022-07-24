@@ -1,7 +1,8 @@
 {
-  "Version": "1.0.9",
+  "Version": "1.1.0",
   "Changelogs": [
-    "- Fix increment to 0.10 for execution time. (2)"
+    "- Importing config will work without needing to provide token.",
+    "- Changed intial directroy of config to be location of application."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

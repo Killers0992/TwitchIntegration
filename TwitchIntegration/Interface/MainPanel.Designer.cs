@@ -32,6 +32,8 @@
             this.poisonTabControl1 = new ReaLTaiizor.Controls.PoisonTabControl();
             this.MainTab = new ReaLTaiizor.Controls.PoisonTabPage();
             this.twitchLogin = new TwitchIntegration.Interface.TwitchLogin();
+            this.Misc = new ReaLTaiizor.Controls.PoisonLabel();
+            this.poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
             this.pubsubSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
             this.chatSpinner = new ReaLTaiizor.Controls.PoisonProgressSpinner();
             this.version = new ReaLTaiizor.Controls.PoisonLabel();
@@ -72,8 +74,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.poisonButton1 = new ReaLTaiizor.Controls.PoisonButton();
-            this.Misc = new ReaLTaiizor.Controls.PoisonLabel();
             this.poisonTabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.CommandsTab.SuspendLayout();
@@ -113,9 +113,9 @@
             // MainTab
             // 
             this.MainTab.AutoScroll = true;
-            this.MainTab.Controls.Add(this.twitchLogin);
             this.MainTab.Controls.Add(this.Misc);
             this.MainTab.Controls.Add(this.poisonButton1);
+            this.MainTab.Controls.Add(this.twitchLogin);
             this.MainTab.Controls.Add(this.pubsubSpinner);
             this.MainTab.Controls.Add(this.chatSpinner);
             this.MainTab.Controls.Add(this.version);
@@ -145,13 +145,34 @@
             // twitchLogin
             // 
             this.twitchLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.twitchLogin.Location = new System.Drawing.Point(0, 3);
+            this.twitchLogin.Location = new System.Drawing.Point(0, 0);
             this.twitchLogin.Name = "twitchLogin";
             this.twitchLogin.Size = new System.Drawing.Size(854, 255);
             this.twitchLogin.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.twitchLogin.TabIndex = 16;
             this.twitchLogin.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
             this.twitchLogin.UseSelectable = true;
+            // 
+            // Misc
+            // 
+            this.Misc.AutoSize = true;
+            this.Misc.Location = new System.Drawing.Point(741, 210);
+            this.Misc.Name = "Misc";
+            this.Misc.Size = new System.Drawing.Size(35, 19);
+            this.Misc.TabIndex = 18;
+            this.Misc.Text = "Misc";
+            this.Misc.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            // 
+            // poisonButton1
+            // 
+            this.poisonButton1.Location = new System.Drawing.Point(741, 232);
+            this.poisonButton1.Name = "poisonButton1";
+            this.poisonButton1.Size = new System.Drawing.Size(109, 23);
+            this.poisonButton1.TabIndex = 17;
+            this.poisonButton1.Text = "Import Old Config";
+            this.poisonButton1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.poisonButton1.UseSelectable = true;
+            this.poisonButton1.Click += new System.EventHandler(this.poisonButton1_Click);
             // 
             // pubsubSpinner
             // 
@@ -275,10 +296,10 @@
             this.CommandsTab.HorizontalScrollbarBarColor = true;
             this.CommandsTab.HorizontalScrollbarHighlightOnWheel = false;
             this.CommandsTab.HorizontalScrollbarSize = 10;
-            this.CommandsTab.Location = new System.Drawing.Point(4, 38);
+            this.CommandsTab.Location = new System.Drawing.Point(4, 35);
             this.CommandsTab.Name = "CommandsTab";
             this.CommandsTab.Padding = new System.Windows.Forms.Padding(25);
-            this.CommandsTab.Size = new System.Drawing.Size(857, 261);
+            this.CommandsTab.Size = new System.Drawing.Size(857, 264);
             this.CommandsTab.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.CommandsTab.TabIndex = 1;
             this.CommandsTab.Text = "Commands";
@@ -700,28 +721,10 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // poisonButton1
-            // 
-            this.poisonButton1.Location = new System.Drawing.Point(615, 56);
-            this.poisonButton1.Name = "poisonButton1";
-            this.poisonButton1.Size = new System.Drawing.Size(109, 23);
-            this.poisonButton1.TabIndex = 17;
-            this.poisonButton1.Text = "Import Old Config";
-            this.poisonButton1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            this.poisonButton1.UseSelectable = true;
-            this.poisonButton1.Click += new System.EventHandler(this.poisonButton1_Click);
-            // 
-            // Misc
-            // 
-            this.Misc.AutoSize = true;
-            this.Misc.Location = new System.Drawing.Point(615, 34);
-            this.Misc.Name = "Misc";
-            this.Misc.Size = new System.Drawing.Size(35, 19);
-            this.Misc.TabIndex = 18;
-            this.Misc.Text = "Misc";
-            this.Misc.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            this.openFileDialog1.FileName = "config.json";
+            this.openFileDialog1.Filter = "Json files (*.json)|*.json|All files (*.*)|*.*";
+            this.openFileDialog1.RestoreDirectory = true;
+            this.openFileDialog1.Title = "Select old config file.";
             // 
             // MainPanel
             // 

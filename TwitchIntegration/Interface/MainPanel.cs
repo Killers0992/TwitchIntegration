@@ -1,4 +1,5 @@
 ﻿using ReaLTaiizor.Controls;
+using System.Reflection;
 using TwitchIntegration.Interface.Tabs;
 using TwitchIntegration.Models.Twitch;
 
@@ -38,6 +39,8 @@ namespace TwitchIntegration.Interface
             followTab.Controls.Add(new FollowTab());
             BanTab.Controls.Add(new BanTab());
             TimedoutTab.Controls.Add(new TimedOutTab());
+
+            openFileDialog1.InitialDirectory = AppContext.BaseDirectory;
         }
 
         void OnOAuthKeyDown(object sender, KeyEventArgs e)
