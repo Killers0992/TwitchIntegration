@@ -1,4 +1,5 @@
 ﻿using ReaLTaiizor.Controls;
+using ReaLTaiizor.Enum.Poison;
 using System.Reflection;
 using TwitchIntegration.Interface.Tabs;
 using TwitchIntegration.Models.Twitch;
@@ -157,18 +158,22 @@ namespace TwitchIntegration.Interface
             _currentCreateCommandWindow = new PoisonTaskWindow(0, new CreateCommandDialog(this))
             {
                 Text = "Add Command",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentCreateCommandWindow.Controls[0].Parent = _currentCreateCommandWindow;
 
-            _currentCreateCommandWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentCreateCommandWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(325, 200),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentCreateCommandWindow.Show();
-            _currentCreateCommandWindow.Size = new System.Drawing.Size(325, 200);
         }
         #endregion
 
@@ -266,18 +271,22 @@ namespace TwitchIntegration.Interface
             _currentCreateSubWindow = new PoisonTaskWindow(0, new CreateSubscriptionDialog(this))
             {
                 Text = "Add Subscription",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentCreateSubWindow.Controls[0].Parent = _currentCreateSubWindow;
 
-            _currentCreateSubWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentCreateSubWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(385, 180),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentCreateSubWindow.Show();
-            _currentCreateSubWindow.Size = new System.Drawing.Size(385, 180);
         }
 #endregion
 
@@ -326,18 +335,22 @@ namespace TwitchIntegration.Interface
             _currentCreateRewardWindow = new PoisonTaskWindow(0, new CreateRewardDialog(this))
             {
                 Text = "Add Reward",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentCreateRewardWindow.Controls[0].Parent = _currentCreateRewardWindow;
 
-            _currentCreateRewardWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentCreateRewardWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(385, 180),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentCreateRewardWindow.Show();
-            _currentCreateRewardWindow.Size = new System.Drawing.Size(385, 180);
         }
         #endregion
 

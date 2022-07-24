@@ -86,18 +86,22 @@ namespace TwitchIntegration.Interface
             _currentEditWindow = new PoisonTaskWindow(0, new EditBitsDialog(this))
             {
                 Text = $"Edit bits",
+
                 Resizable = false,
+                MinimizeBox = false,
                 MaximizeBox = false,
+
                 Movable = true,
-    
+
                 StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(686, 357),
 
                 Theme = ThemeStyle.Dark,
                 Style = ColorStyle.Magenta,
             };
-
             _currentEditWindow.Show();
-            _currentEditWindow.Size = new System.Drawing.Size(606, 357);
         }
     }
 }

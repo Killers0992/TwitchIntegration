@@ -186,18 +186,19 @@ namespace TwitchIntegration.Interface.Tabs
             _currentAddOscWindow = new PoisonTaskWindow(0, control)
             {
                 Text = "Add OSC Action",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentAddOscWindow.Controls[0].Parent = _currentAddOscWindow;
 
-            _currentAddOscWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentAddOscWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(325, 282),
+            };
             _currentAddOscWindow.Show();
-            _currentAddOscWindow.Size = new System.Drawing.Size(325, 282);
         }
     }
 }

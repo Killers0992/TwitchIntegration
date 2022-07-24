@@ -134,18 +134,22 @@ namespace TwitchIntegration.Interface
             _currentEditWindow = new PoisonTaskWindow(0, SubType == SubscriptionType.NewSub ? new EditNewSubscriptionDialog(this) : new EditReSubscriptionDialog(this))
             {
                 Text = $"Edit sub",
+
                 Resizable = false,
+                MinimizeBox = false,
                 MaximizeBox = false,
+
                 Movable = true,
-    
+
                 StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(606, 357),
 
                 Theme = ThemeStyle.Dark,
                 Style = ColorStyle.Magenta,
             };
-
             _currentEditWindow.Show();
-            _currentEditWindow.Size = new System.Drawing.Size(606, 357);
         }
     }
 }

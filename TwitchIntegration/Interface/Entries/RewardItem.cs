@@ -1,4 +1,5 @@
-﻿using TwitchIntegration.Models.Twitch;
+﻿using ReaLTaiizor.Enum.Poison;
+using TwitchIntegration.Models.Twitch;
 
 namespace TwitchIntegration.Interface
 {
@@ -65,18 +66,22 @@ namespace TwitchIntegration.Interface
             _currentEditWindow = new PoisonTaskWindow(0, new EditRewardDialog(this))
             {
                 Text = $"Edit reward \"{RewardName}\"",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentEditWindow.Controls[0].Parent = _currentEditWindow;
 
-            _currentEditWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentEditWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(606, 357),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentEditWindow.Show();
-            _currentEditWindow.Size = new System.Drawing.Size(606, 357);
         }
     }
 }

@@ -1,8 +1,7 @@
 {
-  "Version": "1.1.0",
+  "Version": "1.1.1",
   "Changelogs": [
-    "- Importing config will work without needing to provide token.",
-    "- Changed intial directroy of config to be location of application."
+    "- Fixed windows not appearing on center of screen."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

@@ -1,4 +1,5 @@
-﻿using TwitchIntegration.Interfaces;
+﻿using ReaLTaiizor.Enum.Poison;
+using TwitchIntegration.Interfaces;
 using TwitchIntegration.Models.Twitch;
 
 namespace TwitchIntegration.Interface.Dialogs
@@ -215,18 +216,22 @@ namespace TwitchIntegration.Interface.Dialogs
             _currentAddOscWindow = new PoisonTaskWindow(0, control)
             {
                 Text = "Add OSC Action",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentAddOscWindow.Controls[0].Parent = _currentAddOscWindow;
 
-            _currentAddOscWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentAddOscWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(325, 282),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentAddOscWindow.Show();
-            _currentAddOscWindow.Size = new System.Drawing.Size(325, 282);
         }
 
         private void changeReward_Click(object sender, EventArgs e)
@@ -257,18 +262,22 @@ namespace TwitchIntegration.Interface.Dialogs
             _currentRewardWindow = new PoisonTaskWindow(0, control)
             {
                 Text = "Assign reward",
+
                 Resizable = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
-                Movable = true,
-                WindowState = FormWindowState.Normal,
-            };
-            _currentRewardWindow.Controls[0].Parent = _currentRewardWindow;
 
-            _currentRewardWindow.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
-            _currentRewardWindow.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
+                Movable = true,
+
+                StartPosition = FormStartPosition.CenterScreen,
+
+                CustomSize = true,
+                Size = new Size(385, 180),
+
+                Theme = ThemeStyle.Dark,
+                Style = ColorStyle.Magenta,
+            };
             _currentRewardWindow.Show();
-            _currentRewardWindow.Size = new System.Drawing.Size(385, 180);
         }
     }
 }
