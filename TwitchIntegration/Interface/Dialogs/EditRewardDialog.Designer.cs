@@ -278,11 +278,11 @@
             // 
             // rewardId
             // 
-            this.rewardId.AutoSize = true;
             this.rewardId.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Bold;
             this.rewardId.Location = new System.Drawing.Point(15, 42);
+            this.rewardId.MaximumSize = new System.Drawing.Size(250, 25);
             this.rewardId.Name = "rewardId";
-            this.rewardId.Size = new System.Drawing.Size(0, 0);
+            this.rewardId.Size = new System.Drawing.Size(250, 25);
             this.rewardId.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Magenta;
             this.rewardId.TabIndex = 35;
             this.rewardId.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
