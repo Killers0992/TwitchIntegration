@@ -1,7 +1,7 @@
 {
-  "Version": "1.1.1",
+  "Version": "1.1.2",
   "Changelogs": [
-    "- Fixed windows not appearing on center of screen."
+    "- Fixed rewards tab throwing errors."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"
