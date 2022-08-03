@@ -1,7 +1,8 @@
 {
-  "Version": "1.1.3",
+  "Version": "1.1.4",
   "Changelogs": [
-    "- Fixed reward id overlaping in edit window."
+    "- Fixed bits/host edit windows not",
+    "  not handling values under 10K."
   ],
   "IntegrationFileName": "TwitchIntegration",
   "DependenciesFileName": "deps"

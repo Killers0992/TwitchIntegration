@@ -56,7 +56,7 @@
             // 
             this.minimumBits.Location = new System.Drawing.Point(89, 62);
             this.minimumBits.Maximum = new decimal(new int[] {
-            100000,
+            1000000,
             0,
             0,
             0});
@@ -227,7 +227,7 @@
             // 
             this.maxiumumBits.Location = new System.Drawing.Point(216, 61);
             this.maxiumumBits.Maximum = new decimal(new int[] {
-            100000,
+            1000000,
             0,
             0,
             0});

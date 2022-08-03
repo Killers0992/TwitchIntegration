@@ -224,7 +224,7 @@
             // 
             this.minimumMonths.Location = new System.Drawing.Point(86, 197);
             this.minimumMonths.Maximum = new decimal(new int[] {
-            9999,
+            1000000,
             0,
             0,
             0});
@@ -396,7 +396,7 @@
             // 
             this.maxiumumMonths.Location = new System.Drawing.Point(213, 196);
             this.maxiumumMonths.Maximum = new decimal(new int[] {
-            9999,
+            1000000,
             0,
             0,
             0});
