@@ -20,6 +20,6 @@ Currently implemented events:
 
 ``LocalLow/VRChat/VRChat/OCS/<userid>/<avatarid>.json``
 
-https://docs.vrchat.com/v2022.1.1/docs/osc-avatar-parameters
+https://docs.vrchat.com/docs/osc-avatar-parameters
 
-https://docs.vrchat.com/v2022.1.1/docs/osc-as-input-controller#supported-inputs
+https://docs.vrchat.com/docs/osc-as-input-controller#supported-inputs
