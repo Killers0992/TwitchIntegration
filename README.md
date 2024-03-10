@@ -10,10 +10,6 @@ Currently implemented events:
 - OnBeingHosted
 - OnFollow
 
-# Contact
-
-[![Discord Banner](https://discordapp.com/api/guilds/948581245527425114/widget.png?style=banner3)](https://discord.gg/uhvsaEFmSE)
-
 # Some information
 
 - Possible parameters for your avatar which can be used in OCS can be found in 
