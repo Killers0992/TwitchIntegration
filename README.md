@@ -5,6 +5,11 @@
 # TwitchIntegration
 Twitch bot which allows you to manipulate vrchat avatar thru OSC.
 
+# Usage
+
+If you wanna to install it you need to download it thru <https://github.com/Killers0992/VrcOscIntegrations>
+
+
 Currently implemented events:
 - Commands
 - OnReSubscribe / OnSubscribe
