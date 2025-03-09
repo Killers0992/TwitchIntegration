@@ -27,7 +27,19 @@ namespace TwitchIntegration.Services
             api = new TwitchAPI();
             api.Settings.ClientId = AuthProviders.TwitchClientID;
 
-            retry:
+            if (!MainClass.Instance.Config.Events.ShowedPrompt)
+            {
+                DialogResult res = MessageBox.Show("Hello I will be reworking this app completly and making new app on steam, just asking if theres active people using it please add me on discord for future feedback how stuff should look in new app, name \"Killers0992\" <3", "Message From Creator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (res == DialogResult.OK)
+                {
+                    MainClass.Instance.Config.Events.ShowedPrompt = true;
+                    MainClass.Instance.SaveConfig();
+                }
+            }
+            
+
+
+        retry:
 
             while (WaitingForAction)
             {

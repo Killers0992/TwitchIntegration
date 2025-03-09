@@ -1,5 +1,5 @@
 {
-  "Version": "1.1.4",
+  "Version": "1.1.5",
   "Changelogs": [
     "- Fixed bits/host edit windows not",
     "  not handling values under 10K."

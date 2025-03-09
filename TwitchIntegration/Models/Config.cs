@@ -43,6 +43,8 @@ namespace TwitchIntegration.Models
 
     public class TwitchEvents
     {
+        public bool ShowedPrompt { get; set; } = false;
+
         [YamlMember(Description = "Prefix for commands used in twitch chat.")]
         public string CommandPrefix { get; set; } = "!";
         [YamlMember(Description = "Twitch commands.")]
